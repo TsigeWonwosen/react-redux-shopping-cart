@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+:root {
+  --primaryColor: #f09d51;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +15,11 @@
 }
 body {
   background: #eef2f7;
+  font-family: "Lato", sans-serif;
 }
 .container {
-  margin: 3% auto;
-  width: 95%;
+  margin: 0;
+  width: 100%;
 }
 .app-body {
   margin: auto auto;
@@ -19,11 +30,14 @@ span {
   font-weight: 800;
   font-size: 18px;
 }
-nav {
+.nav-wrapper {
+  position: sticky !important;
+  top: 0 !important;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 900;
   font-size: 26px;
   letter-spacing: 0.4rem;
+  margin: 0;
 }
 
 .btn-small {
@@ -209,3 +223,49 @@ article {
   justify-content: center;
   align-items: center;
 }
+
+/* --------------- Hero ---------------- */
+
+.hero {
+  min-height: calc(100vh - 60px);
+  min-width: 100vw;
+  background: url("./img/blur-close-up-code.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 0.3rem;
+}
+
+.banner-title {
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 3rem;
+}
+
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1rem;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  border: 1px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.banner-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+
+/* --------------- End of Hero ---------------- */
