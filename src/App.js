@@ -1,26 +1,72 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "materialize-css/dist/css/materialize.min.css";
+import "./App.css";
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Cart from "./components/Cart";
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import ProductContainer from "./components/ProductContainer";
+import {
+  addToCart,
+  deleteFromCart,
+  fetchProduct,
+  handleCart,
+} from "./redux/action/cartAction";
+
+class App extends React.Component {
+  handleAddProduct = (product) => {
+    this.props.addToCart(product);
+  };
+
+  componentDidMount() {
+    this.props.fetchProduct();
+  }
+  render() {
+    const cartLen =
+      this.props.cart && this.props.cart.reduce((a, b) => a + b.units, 0);
+
+    return (
+      <Router>
+        <NavBar cartLen={cartLen} />
+        <div className='container'>
+          <Switch className='app-body'>
+            <Route path='/cart'>
+              <Cart
+                deleteFromCart={this.props.deleteFromCart}
+                handleAddProduct={this.handleAddProduct}
+              />
+            </Route>
+            <Route path='/product'>
+              <ProductContainer
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
+            </Route>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
+const mapStateToProps = (state) => ({
+  cart: state.cart.cart,
+  product: state.product.filteredItems,
+});
 
-export default App;
+const mapActionToProps = (dispatch, ownProps) => {
+  // const { id } = ownProps;
+  return {
+    addToCart: (product) => dispatch(addToCart(product)),
+    deleteFromCart: (id) => dispatch(deleteFromCart(id)),
+    fetchProduct: () => dispatch(fetchProduct()),
+    handleInCart: (id) => dispatch(handleCart(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapActionToProps)(App);

@@ -1,0 +1,11 @@
+export const ADD_CART = "ADD_CART";
+export const DELETE_CART = "DELETE_CART";
+export const CLEAR_CART = "CLEAR_CART";
+export const INCREMENT_CART = "INCREMENT_CART";
+export const DECREMENT_CART = "DECREMENT_CART";
+export const TOTAL_CART = "TOTAL_CART";
+export const HANDLE_IN_CART = "HANDLE_IN_CART";
+export const FETCH_PRODUCT = "FETCH_PRODUCT";
+
+export const FILTERED_PRODUCT = "FILTERED_PRODUCT";
+export const SORT_PRODUCT_BY_PRICE = "FILTERED_PRODUCT";
