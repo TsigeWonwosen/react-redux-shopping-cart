@@ -10,13 +10,14 @@ import {
   addToCart,
 } from "../redux/action/cartAction";
 import CartItem from "./CartItem";
+import PayPal from "./Paypal";
 
 class Cart extends React.Component {
-  componentDidUpdate() {
+  componentDidMount() {
     this.props.totalCart();
   }
   render() {
-    const {
+    let {
       carT,
       deleteFromCart,
       totalPrice,
@@ -25,6 +26,11 @@ class Cart extends React.Component {
       handleAddProduct,
     } = this.props;
 
+    let Tax = parseFloat(totalPrice) * 0.01;
+    let Total = parseFloat(Tax) + parseFloat(totalPrice);
+    let newTotal = Total.toFixed(2);
+    let subTotal = util.formatCurrency(totalPrice);
+    
     if (carT.length === 0) {
       return (
         <section className='cart container'>
@@ -65,8 +71,21 @@ class Cart extends React.Component {
         <footer className='cartFooter'>
           <div className='cart-total'>
             <h4>
-              Total <span>{util.formatCurrency(totalPrice)}</span>
+              Subtotal <span>{util.formatCurrency(totalPrice)}</span>
             </h4>
+            <h4>
+              Tax <span>{util.formatCurrency(Tax)}</span>
+            </h4>
+            <h4>
+              Total <span>{util.formatCurrency(Total)}</span>
+            </h4>
+            <span>
+              <PayPal
+                total={newTotal}
+                clearFromCart={clearFromCart}
+                history={history}
+              />
+            </span>
           </div>
           <div>
             <button
