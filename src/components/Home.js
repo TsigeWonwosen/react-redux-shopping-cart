@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return (
       <header className='hero'>
-        <img src={Background} alt='Background img' />
+        {/* <img src={Background} alt='Background img' /> */}
         <div className='banner'>
           <h1 className='banner-title'>React Redux E-Commerce ...</h1>
 
