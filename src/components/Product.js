@@ -33,7 +33,7 @@ export default function Product({
             handleInCart(id);
           }}
           className='waves-effect  btn-small'
-          style={{ position: "absolute", bottom: "-8px", left: "20%" }}
+          style={{ position: "absolute", bottom: "5px", left: "30%" }}
         >
           {!InCart ? "Add To Cart" : "In Cart"}
         </button>
