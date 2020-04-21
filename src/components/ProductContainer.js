@@ -19,7 +19,7 @@ export default function ProductContainer({
           border: " 1px solid #3949ab",
         }}
       />
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <section style={{ display: "flex", flexWrap: "wrap" }}>
         {product.map((prod) => {
           return (
             <Product
@@ -31,7 +31,7 @@ export default function ProductContainer({
             />
           );
         })}
-      </div>
+      </section>
     </div>
   );
 }

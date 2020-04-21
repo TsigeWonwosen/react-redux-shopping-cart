@@ -110,6 +110,10 @@ span {
 }
 .card {
   background-color: rgb(225, 235, 235);
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 300px;
+  max-height: 300px;
 }
 .card:hover {
   background-color: rgb(236, 239, 210);
