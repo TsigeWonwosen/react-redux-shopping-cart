@@ -24,6 +24,54 @@ body {
   margin: 0;
   width: 100%;
 }
+/* --------------- Hero ---------------- */
+
+.hero {
+  min-height: calc(100vh - 60px);
+  min-width: 100vw;
+  background: url("/img/blur-close-up-code.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.banner {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 0.3rem;
+}
+
+.banner-title {
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 3rem;
+}
+
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1rem;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  border: 1px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.banner-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+
+/* --------------- End of Hero ---------------- */
+
 .app-body {
   margin: auto auto;
 }
@@ -226,51 +274,3 @@ article {
   justify-content: center;
   align-items: center;
 }
-
-/* --------------- Hero ---------------- */
-
-.hero {
-  min-height: calc(100vh - 60px);
-  min-width: 100vw;
-  background: url("/img/blur-close-up-code.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  object-fit: cover;
-}
-
-.banner {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  display: inline-block;
-  padding: 2rem;
-  border-radius: 0.3rem;
-}
-
-.banner-title {
-  font-size: 3.4rem;
-  text-transform: uppercase;
-  letter-spacing: var(--mainSpacing);
-  margin-bottom: 3rem;
-}
-
-.banner-btn {
-  padding: 1rem 3rem;
-  text-transform: uppercase;
-  letter-spacing: var(--mainSpacing);
-  font-size: 1rem;
-  background: var(--primaryColor);
-  color: var(--mainBlack);
-  border: 1px solid var(--primaryColor);
-  transition: var(--mainTransition);
-  cursor: pointer;
-  border-radius: 0.3rem;
-}
-
-.banner-btn:hover {
-  background: transparent;
-  color: var(--primaryColor);
-}
-
-/* --------------- End of Hero ---------------- */
