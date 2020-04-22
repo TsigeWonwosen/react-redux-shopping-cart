@@ -29,26 +29,25 @@ class App extends React.Component {
     return (
       <Router>
         <NavBar cartLen={cartLen} />
-        <div className='container'>
-          <Switch className='app-body'>
-            <Route path='/cart'>
-              <Cart
-                deleteFromCart={this.props.deleteFromCart}
-                handleAddProduct={this.handleAddProduct}
-              />
-            </Route>
-            <Route path='/product'>
-              <ProductContainer
-                handleAddProduct={this.handleAddProduct}
-                handleInCart={this.props.handleInCart}
-                product={this.props.product}
-              />
-            </Route>
-            <Route path='/'>
-              <Home />
-            </Route>
-          </Switch>
-        </div>
+
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/cart'>
+            <Cart
+              deleteFromCart={this.props.deleteFromCart}
+              handleAddProduct={this.handleAddProduct}
+            />
+          </Route>
+          <Route path='/product'>
+            <ProductContainer
+              handleAddProduct={this.handleAddProduct}
+              handleInCart={this.props.handleInCart}
+              product={this.props.product}
+            />
+          </Route>
+        </Switch>
       </Router>
     );
   }

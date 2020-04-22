@@ -39,21 +39,25 @@ export default function NavBar({ cartLen }) {
                 >
                   <i className='large material-icons'>add_shopping_cart </i>
                   <div>
-                    <h6
-                      style={{
-                        position: "absolute",
-                        top: "-12px",
-                        right: "-0.2px",
-                        borderRadius: "50%",
-                        padding: " 0.2rem 0.2rem",
-                        width: "27px",
-                        height: "27px",
-                        background: "#e65100",
-                        color: "white",
-                      }}
-                    >
-                      {cartLen}+
-                    </h6>
+                    {cartLen > 0 ? (
+                      <h6
+                        style={{
+                          position: "absolute",
+                          top: "-12px",
+                          right: "-0.2px",
+                          borderRadius: "50%",
+                          padding: " 0.2rem 0.2rem",
+                          width: "27px",
+                          height: "27px",
+                          background: "#e65100",
+                          color: "white",
+                        }}
+                      >
+                        {cartLen}+
+                      </h6>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </Link>

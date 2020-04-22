@@ -30,12 +30,12 @@ class Cart extends React.Component {
     let Total = parseFloat(Tax) + parseFloat(totalPrice);
     let newTotal = Total.toFixed(2);
     let subTotal = util.formatCurrency(totalPrice);
-    
+
     if (carT.length === 0) {
       return (
         <section className='cart container'>
           <header>
-            <h2>Your Bag</h2>
+            <h3>Your Bag</h3>
             <h4 className='empty-cart'>is currently empty</h4>
           </header>
         </section>
@@ -51,11 +51,26 @@ class Cart extends React.Component {
     // totalCart();
 
     return (
-      <section class='cart'>
+      <section className='container'>
         <header>
-          <h2>Your Bag</h2>
+          <h4>Your Bag</h4>
         </header>
         <article>
+          <div>
+            <div className='cartHeader row'>
+              <div className='col s3 m3'>
+                <h5>Title</h5>
+              </div>
+              <div className='col s3 m3'>
+                <h5>Price</h5>
+              </div>
+              <div className='col s3 m3'>
+                <h5>Total</h5>
+              </div>
+            </div>
+            <hr />
+          </div>
+
           <div>{renderCart}</div>
         </article>
         <hr
@@ -71,21 +86,27 @@ class Cart extends React.Component {
         <footer className='cartFooter'>
           <div className='cart-total'>
             <h4>
-              Subtotal <span>{util.formatCurrency(totalPrice)}</span>
+              <label>Subtotal</label>
+              <span>{util.formatCurrency(totalPrice)}</span>
             </h4>
             <h4>
-              Tax <span>{util.formatCurrency(Tax)}</span>
+              <label>Tax</label>
+              <span>{util.formatCurrency(Tax)}</span>
             </h4>
             <h4>
-              Total <span>{util.formatCurrency(Total)}</span>
+              <label>Total</label>
+              <span>{util.formatCurrency(Total)}</span>
             </h4>
-            <span>
-              <PayPal
-                total={newTotal}
-                clearFromCart={clearFromCart}
-                history={history}
-              />
-            </span>
+            <h4>
+              <label></label>
+              <span>
+                <PayPal
+                  total={newTotal}
+                  clearFromCart={clearFromCart}
+                  history={history}
+                />
+              </span>
+            </h4>
           </div>
           <div>
             <button

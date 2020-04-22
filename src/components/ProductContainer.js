@@ -19,7 +19,7 @@ export default function ProductContainer({
           border: " 1px solid #3949ab",
         }}
       />
-      <section style={{ display: "flex", flexWrap: "wrap" }}>
+      <section className='container cardContainer'>
         {product.map((prod) => {
           return (
             <Product

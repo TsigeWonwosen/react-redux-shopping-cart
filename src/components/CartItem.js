@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import {
   DELETE_CART,
@@ -24,48 +24,62 @@ const CartItem = ({
   remove,
   InCart,
 }) => {
-  return (
+  const [show, setShow] = useState(true);
+  const itemRender = () => (
     <div className='cartItem row container'>
       <img src={img} alt={name} className='col s6 m3' />
-      <div className=' cartText col s6 m7'>
-        <div className='row'></div>
-
-        <h4 className='col s8 m4'>{name}</h4>
-        <div className='col s8 m4'>
-          <h6>{description}</h6>
-          <h6 className='item-price'>{util.formatCurrency(price)}</h6>
-        </div>
-        <div className='cartItemButton col s8 m4'>
-          <button className='btn remove-btn' onClick={() => remove()}>
-            remove
-            <i className='material-icons large '>delete_forever</i>
-          </button>
-        </div>
-      </div>
-      <div className='col s3 m2'>
-        <div className='card-action'>
-          <div className='row'>
-            <div className='col s6 m6'>
-              <button onClick={() => increase()}>
-                <i className='material-icons small'>arrow_drop_up</i>
-              </button>
-              {units}
+      <div className='col s6 m7'>
+        <div className='cartText row'>
+          <div className='col s8 m5'>
+            <div className='itemDescription'>
+              <h5>{name}</h5>
               <button
                 onClick={() => {
-                  if (units === 1) {
-                    return remove();
-                  }
-                  return decrease();
+                  setShow(!show);
                 }}
               >
-                <i className='material-icons small'>arrow_drop_down</i>
+                <i className='material-icons tiny '>
+                  {!show ? "arrow_drop_up" : "arrow_drop_down"}
+                </i>
               </button>
             </div>
+
+            <h6 style={{ display: !show ? "block" : "none" }}>{description}</h6>
           </div>
+          <div className='itemPrice col s8 m3'>
+            <h6 className='item-price'>{util.formatCurrency(price)}</h6>
+          </div>
+          <div className='itemPrice col s8 m4'>
+            <h6 className='item-price'>{util.formatCurrency(total)}</h6>
+          </div>
+        </div>
+      </div>
+
+      <div className='cartItemButton col s8 m2'>
+        <button onClick={() => remove()}>
+          <i className='material-icons tiny remove '>delete_forever</i>
+        </button>
+
+        <div className='card-action'>
+          <button onClick={() => increase()}>
+            <i className='material-icons tiny'>add</i>
+          </button>
+          {units}
+          <button
+            onClick={() => {
+              if (units === 1) {
+                return remove();
+              }
+              return decrease();
+            }}
+          >
+            <i className='material-icons tiny'>indeterminate_check_box</i>
+          </button>
         </div>
       </div>
     </div>
   );
+  return <div>{itemRender()}</div>;
 };
 
 function mapStateToProps(store) {
@@ -78,8 +92,14 @@ function mapStateToProps(store) {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { id, units } = ownProps;
   return {
-    increase: () => dispatch({ type: INCREMENT_CART, payload: id }),
-    decrease: () => dispatch({ type: DECREMENT_CART, payload: { id, units } }),
+    increase: () => {
+      dispatch({ type: INCREMENT_CART, payload: id });
+      dispatch({ type: TOTAL_CART });
+    },
+    decrease: () => {
+      dispatch({ type: DECREMENT_CART, payload: { id, units } });
+      dispatch({ type: TOTAL_CART });
+    },
     remove: () => {
       dispatch({ type: DELETE_CART, payload: id });
       dispatch({ type: HANDLE_IN_CART, payload: id });
