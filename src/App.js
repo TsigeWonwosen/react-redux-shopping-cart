@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import Cart from "./components/Cart";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
+
 import ProductContainer from "./components/ProductContainer";
 import {
   addToCart,
@@ -48,6 +50,7 @@ class App extends React.Component {
             />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     );
   }
