@@ -4,10 +4,8 @@ import util from "../utility/util";
 import { connect } from "react-redux";
 import {
   handleCart,
-  deleteFromCart,
   clearFromCart,
   totalCart,
-  addToCart,
 } from "../redux/action/cartAction";
 import CartItem from "./CartItem";
 import PayPal from "./Paypal";
@@ -16,6 +14,7 @@ class Cart extends React.Component {
   componentDidMount() {
     this.props.totalCart();
   }
+
   render() {
     let {
       carT,
@@ -23,18 +22,17 @@ class Cart extends React.Component {
       totalPrice,
       history,
       clearFromCart,
-      handleAddProduct,
+      resetProduct,
     } = this.props;
 
     let Tax = parseFloat(totalPrice) * 0.01;
     let Total = parseFloat(Tax) + parseFloat(totalPrice);
     let newTotal = Total.toFixed(2);
-    let subTotal = util.formatCurrency(totalPrice);
 
     if (carT.length === 0) {
       return (
-        <section className='cart container'>
-          <header>
+        <section className='container cart'>
+          <header style={{ height: "calc(100vh - 18px)" }}>
             <h3>Your Bag</h3>
             <h4 className='empty-cart'>is currently empty</h4>
           </header>
@@ -46,12 +44,8 @@ class Cart extends React.Component {
       return <CartItem key={c.id} {...c} deleteFromCart={deleteFromCart} />;
     });
 
-    // clearFromCart();
-    // // carT.forEach((cart) => handleAddProduct(cart));
-    // totalCart();
-
     return (
-      <section className='container'>
+      <section className='container cart'>
         <header>
           <h4>Your Bag</h4>
         </header>
@@ -112,7 +106,8 @@ class Cart extends React.Component {
             <button
               className='btn clear-btn'
               onClick={() => {
-                clearFromCart();
+                resetProduct();
+                totalCart();
                 history.push("/product");
               }}
             >
@@ -131,14 +126,17 @@ function mapStateToProps(store) {
   };
 }
 const mapActionToProps = (dispatch, ownProps) => {
-  // const { cart } = ownProps;
   return {
     handleIn_Cart: (id) => dispatch(handleCart(id)),
     clearFromCart: () => {
       dispatch(clearFromCart());
-      // dispatch(addToCart(cart));
     },
     totalCart: () => dispatch(totalCart()),
+
+    resetProduct: () => {
+      dispatch({ type: "RESET_PRODUCT" });
+      dispatch({ type: "CLEAR_CART" });
+    },
   };
 };
 

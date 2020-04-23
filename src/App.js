@@ -61,7 +61,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionToProps = (dispatch, ownProps) => {
-  // const { id } = ownProps;
   return {
     addToCart: (product) => dispatch(addToCart(product)),
     deleteFromCart: (id) => dispatch(deleteFromCart(id)),

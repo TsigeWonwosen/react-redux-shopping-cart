@@ -40,7 +40,7 @@ export default (state = InitialState, action) => {
       };
 
     case CLEAR_CART:
-      return { ...state, cart: [] };
+      return { ...state, cart: [], totalPrice: 0 };
 
     case INCREMENT_CART:
       let newCart = state.cart.map((cartItem) => {

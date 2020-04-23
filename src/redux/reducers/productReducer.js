@@ -3,6 +3,7 @@ import {
   FILTERED_PRODUCT,
   SORT_PRODUCT_BY_PRICE,
   HANDLE_IN_CART,
+  RESET_PRODUCT,
 } from "../action/type";
 
 const initialState = {
@@ -63,6 +64,8 @@ export default (state = initialState, action) => {
         filteredItems: action.payload.items,
         sort: action.payload.sort,
       };
+    case RESET_PRODUCT:
+      return { ...state, filteredItems: state.items };
     default:
       return state;
   }

@@ -6,13 +6,17 @@ export default function NavBar({ cartLen }) {
     <div>
       <nav>
         <div className='nav-wrapper #3949ab indigo darken-1'>
-          <a
-            href='/'
+          <input type='checkbox' id='check' />
+          <label for='check' class='checkbtn'>
+            <i class='material-icons'>dehaze</i>
+          </label>
+          <Link
+            to='/'
             className='brand-logo flow-text'
             style={{ marginLeft: "50px" }}
           >
             Shopping Cart
-          </a>
+          </Link>
           <ul
             id='nav-mobile'
             className='right hide-on-med-and-down'

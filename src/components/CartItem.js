@@ -15,14 +15,10 @@ const CartItem = ({
   name,
   description,
   total,
-  id,
   units,
-  dispatch,
-  deleteFromCart,
   increase,
   decrease,
   remove,
-  InCart,
 }) => {
   const [show, setShow] = useState(true);
   const itemRender = () => (
