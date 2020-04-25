@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import { connect } from "react-redux";
 
 import Cart from "./components/Cart";
 import NavBar from "./components/NavBar";
+import Nav from "./components/Nav";
+
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 
