@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import Nav from "./components/Nav";
 
 import Home from "./components/Home";
+import VideoBackground from "./components/videoBackgraund/VideoBackground";
 import Footer from "./components/Footer";
 
 import ProductContainer from "./components/ProductContainer";
@@ -36,7 +37,8 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/'>
-            <Home />
+            {/* <Home /> */}
+            <VideoBackground />
           </Route>
           <Route path='/cart'>
             <Cart

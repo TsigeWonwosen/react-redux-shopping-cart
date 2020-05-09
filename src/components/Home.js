@@ -7,11 +7,20 @@ class Home extends Component {
       <header className='hero'>
         <div className='banner'>
           <h1 className='banner-title'>React Redux E-Commerce ...</h1>
-
-          <Link to='/product' className='banner-btn'>
-            {" "}
-            Our Products
-          </Link>
+          <div className='home-button'>
+            <Link to='/product' className='banner-btn'>
+              {" "}
+              Our Products
+            </Link>
+            <button className='banner-btn github'>
+              <a
+                href='https://github.com/TsigeWonwosen/react-redux-shopping-cart'
+                target='_blank'
+              >
+                View on Github
+              </a>
+            </button>
+          </div>
         </div>
       </header>
     );

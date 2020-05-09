@@ -52,13 +52,13 @@ class Cart extends React.Component {
         <article>
           <div>
             <div className='cartHeader row'>
-              <div className='col s3 m3'>
+              <div className='col s4 m3'>
                 <h5>Title</h5>
               </div>
-              <div className='col s3 m3'>
+              <div className='col s4 m3'>
                 <h5>Price</h5>
               </div>
-              <div className='col s3 m3'>
+              <div className='col s4 m3'>
                 <h5>Total</h5>
               </div>
             </div>
@@ -71,7 +71,7 @@ class Cart extends React.Component {
           style={{
             width: "80%",
             fontSize: "40",
-            marginLeft: "7%",
+            marginLeft: "10%",
             marginBottom: "1rem",
             border: " 1px solid #3949ab",
           }}

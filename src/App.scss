@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 :root {
   --primaryColor: #f09d51;
   --mainWhite: #fff;
@@ -48,6 +49,13 @@ body {
   border-radius: 0.3rem;
 }
 
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .banner-title {
   font-size: 3.4rem;
   text-transform: uppercase;
@@ -67,6 +75,16 @@ body {
   cursor: pointer;
   border-radius: 0.3rem;
   align-items: center;
+  &.github {
+    margin-left: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: #fff;
+    border: 0.1rem solid #eb074b;
+    &:hover {
+      background-color: #bd3f65;
+      color: rgb(226, 240, 236);
+    }
+  }
 }
 
 .banner-btn:hover {
@@ -75,7 +93,6 @@ body {
 }
 
 /* --------------- End of Hero ---------------- */
-
 span {
   font-family: "Times New Roman", Times, serif;
   letter-spacing: 0.3rem;
@@ -84,23 +101,66 @@ span {
 }
 
 .card-image {
+  max-width: 19rem;
+  max-height: 12rem;
+  object-fit: cover;
   margin: auto auto;
 }
-.activator {
-  max-width: 18rem;
-  opacity: 0.9;
+.card-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 !important;
+  // border: 1px solid #222;
+  margin: 0px !important;
+}
+.cardBody {
+  display: inline-block;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  margin: auto auto;
+  // border: 1px solid rgb(5, 216, 5);
+}
+.card-title {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 20rem;
+  margin: 2px !important;
+  padding: 1px 5px !important;
+  h5 {
+    padding: 0 !important;
+    font-size: 15px !important;
+  }
+  h4 {
+    padding: 0 !important;
+    font-size: 15px;
+  }
+  div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  // border: 1px solid rgb(216, 5, 5);
+
   border-radius: 5px !important;
 }
+
 .btn-small {
-  font-size: 15px;
-  padding: 1px 4px;
-  letter-spacing: 0.1rem;
+  margin-top: 2px !important;
+  margin: auto auto !important;
+  font-size: 1.2em;
+  padding: 0.04rem 0.05em !important;
+  letter-spacing: 0.1em;
   background-color: rgb(235, 235, 235);
-  /* width: 100%; */
-  margin: auto auto;
-  border-radius: 5px;
+  width: 70%;
+  border-radius: 0.3em;
   color: #3949ab;
-  border: 1.4px solid #3949ab;
+  border: 1.49px solid #3949ab;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -118,9 +178,12 @@ span {
   background-color: rgb(225, 235, 235);
   display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  max-width: 450px;
   max-height: 400px;
   transition: all 1s;
+  padding: 0.2em 0.5em !important;
 }
 .card:hover {
   background-color: rgb(236, 239, 210);
@@ -139,6 +202,8 @@ article {
   margin: auto auto;
   padding: 5px;
   width: 80%;
+  justify-content: center;
+  align-items: center;
 
   line-height: 5px;
 }
@@ -327,7 +392,7 @@ header {
   border-radius: 1rem 1rem;
 }
 .card img {
-  max-height: 200px;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 1rem;
   padding: 0.3rem;
@@ -354,10 +419,46 @@ header {
   justify-content: center;
   align-items: center;
 }
-@media screen and (min-width: 1200px) {
+
+// Footer
+.footer-fab {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  font-family: "Open Sans", sans-serif !important;
+}
+.fa {
+  margin-bottom: 0.3rem;
+  font-size: 2.4rem;
+  text-align: center;
+  padding: 0.3rem;
+  max-width: 50px;
+  font-family: "Open Sans", sans-serif;
+  // border-radius: 50%;
+  &.fa-github-square {
+    background: #333;
+    color: white;
+  }
+  &.fa-linkedin-square {
+    color: white;
+    background: rgb(21, 18, 207);
+  }
+  &.fa-facebook-square {
+    background: #3b5998;
+    color: white;
+  }
+  &.fa-youtube-square {
+    background: #bb0000;
+    color: white;
+  }
+}
+
+//End of Footer
+@media screen and (min-width: 2200px) {
   .card {
-    max-width: 350px;
-    max-height: 380px;
+    min-width: 400px;
+    max-height: 390px;
   }
 }
 
@@ -377,17 +478,22 @@ header {
     min-width: 400px !important;
     height: 400px !important;
   }
+
+  .footer-fab-small {
+    max-width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+    .fab {
+      padding: 2px;
+      margin: 0;
+      font-size: 2.5rem;
+    }
+  }
 }
-// @media screen and (max-width: 824px) {
-//   .cardContainer {
-//     justify-content: center;
-//     align-items: center;
-//   }
-//   .card {
-//     max-width: 370px;
-//     max-height: 390px;
-//   }
-// }
 
 @media screen and (max-width: 860px) {
   .cardContainer {

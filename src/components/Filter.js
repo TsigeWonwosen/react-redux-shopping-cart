@@ -8,15 +8,15 @@ class Filter extends Component {
   render() {
     const count = this.props.Product.length;
     return (
-      <div className='row'>
-        <div className='col m4'>
+      <div className='row center'>
+        <div className='col s12 m4 center'>
           {" "}
           <label>
             {" "}
             <span>{count} Products Found</span>
           </label>
         </div>
-        <div className='col m4'>
+        <div className='col s12 m4 center'>
           <label>
             <span>Order By Price</span>
           </label>
@@ -40,7 +40,7 @@ class Filter extends Component {
             </select>
           </div>
         </div>
-        <div className='col m4'>
+        <div className='col  s12 m4 '>
           <label>
             {" "}
             <span>Filter By Id</span>
