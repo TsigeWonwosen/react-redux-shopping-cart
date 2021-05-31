@@ -6,25 +6,22 @@ export default function NavBar({ cartLen }) {
   const [navOpen, setNavOpen] = useState(false);
   const toggleTrueFalse = () => setNavOpen(!navOpen);
   return (
-    <div className='Navigation'>
+    <div className='navBar'>
       <button
         className='checkbtn'
         onClick={() => {
-          console.log("Nav Open: " + navOpen);
           toggleTrueFalse();
         }}
       >
         <i className='material-icons Large'>dehaze</i>
       </button>
 
-      <div className='Shopinglogo'>
-        <Link to='/'>Shopping Cart</Link>
+      <div className='logo'>
+        <Link to='/'>Shoppi</Link>
       </div>
       <nav className='nav'>
         <ul
-          // className='right hide-on-med-and-down'
           className={`links ${navOpen ? "show-nav" : ""}`}
-          // style={{ marginRight: "20px" }}
         >
           <li>
             <Link
@@ -43,11 +40,7 @@ export default function NavBar({ cartLen }) {
           </li>
           <li>
             <Link to='/cart'>
-              <div
-              // style={{
-              //   position: "relative",
-              //   width: "40px",
-              // }}
+              <div       
               >
                 <i className='large material-icons'>add_shopping_cart </i>
                 <div>

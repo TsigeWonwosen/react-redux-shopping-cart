@@ -4,9 +4,11 @@ import {
   filterProductById,
   sortProductByPrice,
 } from "../redux/action/cartAction";
+
 class Filter extends Component {
   render() {
     const count = this.props.Product.length;
+    let currentValue = this.props.sort || "DEFAULT"
     return (
       <div className='row center'>
         <div className='col s12 m4 center'>
@@ -22,9 +24,8 @@ class Filter extends Component {
           </label>
           <div className='input-field'>
             <select
-              defaultValue={"DEFAULT"}
+            value={currentValue}
               className='form-control browser-default'
-              value={this.props.sort}
               onChange={(e) =>
                 this.props.sortProductByPrice(
                   this.props.Product,
@@ -32,7 +33,7 @@ class Filter extends Component {
                 )
               }
             >
-              <option value='DEFAULT' disabled selected>
+              <option value='DEFAULT' disabled >
                 Choose your option
               </option>
               <option value='highest'>Lowest to Highest</option>
@@ -47,7 +48,6 @@ class Filter extends Component {
           </label>
           <div className='input-field'>
             <select
-              defaultValue={"DEFAULT2"}
               className='form-control browser-default'
               value={this.props.id}
               onChange={(e) =>

@@ -16,6 +16,7 @@ class Home extends Component {
               <a
                 href='https://github.com/TsigeWonwosen/react-redux-shopping-cart'
                 target='_blank'
+                rel="noopener noreferrer"
               >
                 View on Github
               </a>

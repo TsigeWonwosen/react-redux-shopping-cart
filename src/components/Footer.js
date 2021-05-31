@@ -20,6 +20,7 @@ export default function Footer() {
                     className='grey-text text-lighten-3'
                     href='https://github.com/TsigeWonwosen/react-redux-shopping-cart'
                     target='_blank'
+                    rel="noopener noreferrer"
                   >
                     <i className='fa fa-github-square'></i>
                   </a>

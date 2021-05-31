@@ -7,25 +7,14 @@ export default function VideoBackground() {
     <>
       <div className='showcase'>
         <div className='video-container'>
-          {/* <video
-            autoPlay
-            muted
-            loop
-            style={{ position: "fixed", width: "100%", left: 0, top: 0 }}
-          >
-            {" "}
-            {/* <source
-              src='https://youtu.be/eCBaLcsMCRs?list=PLF6OZMIvu7e41ZFVtftWZVhSSeTy6CQ38'
-              type='video/mp4'
-            ></source> 
-             </video> }
-             */}
 
           <iframe
-            src='https://www.youtube.com/embed/5KIl4bpaDBM?autoplay=1&mute=1&enablejsapi=1&loop=1&playlist=5KIl4bpaDBM&amp;showinfo=0&start=0'
+          title="City of Turin Video"
+            src='/hero_video.mp4'
             frameborder='0'
             allow='autoplay; encrypted-media'
             allowfullscreen
+            style={{ position: "fixed", width: "100%", left: 0, top: 0 }}
           ></iframe>
         </div>
         <div className='content'>
@@ -39,6 +28,7 @@ export default function VideoBackground() {
             <a
               href='https://github.com/TsigeWonwosen/react-redux-shopping-cart'
               target='_blank'
+              rel="noopener noreferrer" 
             >
               View on Github
             </a>

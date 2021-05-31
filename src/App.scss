@@ -75,11 +75,13 @@ body {
   cursor: pointer;
   border-radius: 0.3rem;
   align-items: center;
+
   &.github {
     margin-left: 1rem;
     padding: 0.6rem 1rem;
     background-color: #fff;
     border: 0.1rem solid #eb074b;
+
     &:hover {
       background-color: #bd3f65;
       color: rgb(226, 240, 236);
@@ -422,12 +424,24 @@ header {
 
 // Footer
 .footer-fab {
-  display: block;
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  margin-left: 2rem;
   font-family: "Open Sans", sans-serif !important;
 }
+
+.footer-fab-small {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & li {
+    margin-right: 0.7rem;
+  }
+}
+
 .fa {
   margin-bottom: 0.3rem;
   font-size: 2.4rem;
@@ -435,7 +449,7 @@ header {
   padding: 0.3rem;
   max-width: 50px;
   font-family: "Open Sans", sans-serif;
-  // border-radius: 50%;
+
   &.fa-github-square {
     background: #333;
     color: white;

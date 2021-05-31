@@ -5,9 +5,6 @@ import { connect } from "react-redux";
 
 import Cart from "./components/Cart";
 import NavBar from "./components/NavBar";
-import Nav from "./components/Nav";
-
-import Home from "./components/Home";
 import VideoBackground from "./components/videoBackgraund/VideoBackground";
 import Footer from "./components/Footer";
 
@@ -19,14 +16,20 @@ import {
   handleCart,
 } from "./redux/action/cartAction";
 
+import fetchProductNew from './utility/fetchProducts'
+
+
 class App extends React.Component {
   handleAddProduct = (product) => {
     this.props.addToCart(product);
   };
 
   componentDidMount() {
+    fetchProductNew()
     this.props.fetchProduct();
   }
+
+  
   render() {
     const cartLen =
       this.props.cart && this.props.cart.reduce((a, b) => a + b.units, 0);
@@ -60,6 +63,7 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
+  
   cart: state.cart.cart,
   product: state.product.filteredItems,
 });
@@ -70,6 +74,7 @@ const mapActionToProps = (dispatch, ownProps) => {
     deleteFromCart: (id) => dispatch(deleteFromCart(id)),
     fetchProduct: () => dispatch(fetchProduct()),
     handleInCart: (id) => dispatch(handleCart(id)),
+    fetchProductNew : dispatch(fetchProductNew())
   };
 };
 

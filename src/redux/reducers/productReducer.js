@@ -4,36 +4,27 @@ import {
   SORT_PRODUCT_BY_PRICE,
   HANDLE_IN_CART,
   RESET_PRODUCT,
+  FETCH_PRODUCTS_ERROR,
+  FETCH_PRODUCTS_PENDING,
+  FETCH_PRODUCTS_SUCCESS,
 } from "../action/type";
 
+
+
 const initialState = {
+  pending:false,
   items: [
-    {
-      id: 69,
-      name: "Tablet Samsung",
-      description: "Samsung ",
-      img:
-        "https://cdn.pixabay.com/photo/2018/05/01/13/04/sport-3365503__340.jpg",
-      price: 330.400888,
-      InCart: false,
-    },
-    {
-      id: 70,
-      name: "Cosmetics ",
-      description: "Girls Cosmo  ",
-      img:
-        "https://cdn.pixabay.com/photo/2016/07/26/16/48/cosmetics-1543276__340.jpg",
-      price: 89.79,
-      InCart: false,
-    },
+    
   ],
   filteredItems: [],
+  error:null,
   id: 0,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCT:
+      console.log("Fetch Product **** ")
       const newState = state.items.concat(action.payload);
       newState.InCart = false;
 
@@ -42,6 +33,18 @@ export default (state = initialState, action) => {
         items: newState,
         filteredItems: newState,
       };
+      case FETCH_PRODUCTS_ERROR:
+      console.log("Fetch Error **** ")
+
+        return {...state,error: action.error,pending:false};
+     case FETCH_PRODUCTS_PENDING:
+      console.log("Fetch Pending **** ")
+
+          return {...state,pending:true}
+     case FETCH_PRODUCTS_SUCCESS:
+      console.log("Fetch Success **** ")
+
+            return {...state,items: action.products,filteredItems:action.products,pending:false}
     case HANDLE_IN_CART:
       return {
         ...state,
@@ -53,6 +56,7 @@ export default (state = initialState, action) => {
         }),
       };
     case FILTERED_PRODUCT:
+
       return {
         ...state,
         filteredItems: action.payload.items,
