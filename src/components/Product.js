@@ -5,7 +5,7 @@ export default function Product({
   id,
   name,
   description,
-  img,
+  image,
   price,
   handleAddProduct,
   InCart,
@@ -14,13 +14,13 @@ export default function Product({
   return (
     <div className='card'>
       <div className='card-image waves-effect waves-block waves-light'>
-        <img className='activator' src={img} alt={name} />
+        <img className='activator' src={image} alt={name} />
       </div>
       <div className='card-content'>
         <div className='cardBody'>
           <span className='card-title activator grey-text text-darken-4'>
             <div>
-              <h6> {description}</h6>
+              <h6> {description.substring(0,30)}</h6>
             </div>
             <div>
               <i className='material-icons  small'>business_center</i>
@@ -39,7 +39,7 @@ export default function Product({
         <button
           disabled={InCart ? true : false}
           onClick={() => {
-            handleAddProduct({ id, name, description, img, price, units: 1 });
+            handleAddProduct({ id, name, description, image, price, units: 1 });
             handleInCart(id);
           }}
           className='waves-effect  btn-small'

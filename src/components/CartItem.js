@@ -10,7 +10,7 @@ import {
 import util from "../utility/util";
 
 const CartItem = ({
-  img,
+  image,
   price,
   name,
   description,
@@ -23,7 +23,7 @@ const CartItem = ({
   const [show, setShow] = useState(true);
   const itemRender = () => (
     <div className='cartItem row container'>
-      <img src={img} alt={name} className='col s12 m3' />
+      <img src={image} alt={name} className='col s12 m3' />
       <div className='col s6 m7'>
         <div className='cartText row'>
           <div className='col s12 m5'>
