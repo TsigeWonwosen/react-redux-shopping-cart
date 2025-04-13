@@ -8,18 +8,18 @@ export default function ProductContainer({
   handleInCart,
 }) {
   return (
-    <div className='App container'>
+    <div className="App container">
       <Filter />
       <hr
         style={{
           width: "80%",
           fontSize: "40",
-          marginLeft: "7%",
+          margin: "auto",
           marginBottom: "1rem",
-          border: " 1px solid #3949ab",
+          border: " 1px solid rgba(57, 72, 171, 0.76)",
         }}
       />
-      <section className='container cardContainer'>
+      <section className="container cardContainer">
         {product.map((prod) => {
           return (
             <Product

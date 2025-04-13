@@ -7,42 +7,44 @@ export default function Product({
   description,
   image,
   price,
+  title,
   handleAddProduct,
   InCart,
   handleInCart,
 }) {
   return (
-    <div className='card'>
-      <div className='card-image waves-effect waves-block waves-light'>
-        <img className='activator' src={image} alt={name} />
+    <div className="card">
+      <div className="card-image waves-effect waves-block waves-light">
+        <img
+          className="activator"
+          src={image}
+          alt={name}
+        />
       </div>
-      <div className='card-content'>
-        <div className='cardBody'>
-          <span className='card-title activator grey-text text-darken-4'>
-            <div>
-              <h6> {description.substring(0,30)}</h6>
-            </div>
-            <div>
-              <i className='material-icons  small'>business_center</i>
-            </div>
+      <div className="card-content">
+        <div className="cardBody">
+          <span className="card-title ">
+            <h6> {title}</h6>
           </span>
-          <span className='card-title activator grey-text text-darken-4'>
-            <div>
-              <h4>Price </h4>
-            </div>
-            <div>
-              {" "}
-              <h5>{util.formatCurrency(price)}</h5>
-            </div>
+          <span className="card-price ">
+            <h5>Price </h5>
+            <h5>{util.formatCurrency(price)}</h5>
           </span>
         </div>
         <button
-          disabled={InCart ? true : false}
+          disabled={InCart}
+          className="btnAdd"
           onClick={() => {
-            handleAddProduct({ id, name, description, image, price, units: 1 });
+            handleAddProduct({
+              id,
+              name,
+              description,
+              image,
+              price,
+              units: 1,
+            });
             handleInCart(id);
           }}
-          className='waves-effect  btn-small'
         >
           {!InCart ? "Add To Cart" : "In Cart"}
         </button>

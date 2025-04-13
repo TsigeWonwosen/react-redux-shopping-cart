@@ -102,104 +102,103 @@ span {
   font-size: 18px;
 }
 
-.card-image {
-  max-width: 19rem;
-  max-height: 12rem;
-  object-fit: cover;
-  margin: auto auto;
-}
-.card-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0 !important;
-  // border: 1px solid #222;
-  margin: 0px !important;
-}
-.cardBody {
-  display: inline-block;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-  margin: auto auto;
-  // border: 1px solid rgb(5, 216, 5);
-}
-.card-title {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 20rem;
-  margin: 2px !important;
-  padding: 1px 5px !important;
-  h5 {
-    padding: 0 !important;
-    font-size: 15px !important;
-  }
-  h4 {
-    padding: 0 !important;
-    font-size: 15px;
-  }
-  div {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  // border: 1px solid rgb(216, 5, 5);
-
-  border-radius: 5px !important;
-}
-
-.btn-small {
-  margin-top: 2px !important;
-  margin: auto auto !important;
-  font-size: 1.2em;
-  padding: 0.04rem 0.05em !important;
-  letter-spacing: 0.1em;
-  background-color: rgb(235, 235, 235);
-  width: 70%;
-  border-radius: 0.3em;
-  color: #3949ab;
-  border: 1.49px solid #3949ab;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-.btn-small:hover {
-  color: rgb(214, 231, 211);
-  background-color: #3949ab;
-}
-
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
 }
 .card {
-  background-color: rgb(225, 235, 235);
+  background-color: #fff;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   max-width: 450px;
-  max-height: 400px;
+  min-width: 250px;
+  // max-height: 420px;
+  height: auto;
   transition: all 1s;
-  padding: 0.2em 0.5em !important;
+  padding: 0 !important;
+  overflow: hidden;
 }
 .card:hover {
-  background-color: rgb(236, 239, 210);
-  transition: transform 0.5s;
+  transition: all 0.5s;
   transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  box-shadow: "0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15)";
-  transform: scale(1.02);
+  transform: scale(1.01);
   opacity: 0.7;
   z-index: 1;
 }
 
-section .cart {
-  height: calc(100vh - 18px);
+.card-image {
+  width: 100% !important;
+  height: 12rem;
+  & .activator {
+    width: 100%;
+    height: 100%;
+    height: 200px;
+    object-fit: contain;
+    object-position: top;
+  }
 }
+
+.card-content {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding: 1rem 1rem !important;
+  background: #f1efef;
+}
+.cardBody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  letter-spacing: none;
+}
+.card-title {
+  width: 100% !important;
+  h6 {
+    width: 100% !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center;
+    line-height: 1.2rem;
+  }
+}
+
+.card-price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h5 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+}
+
+.btnAdd {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 1em;
+  border-radius: 5px;
+  &:hover {
+    color: rgb(214, 231, 211);
+    background-color: #3949ab;
+  }
+}
+
 article {
   margin: auto auto;
   padding: 5px;
@@ -383,25 +382,25 @@ header {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
-.card {
-  border-radius: 5% 5%;
-  height: 380px;
-  width: 350px;
-  margin: 10px;
-  padding: 0.6rem;
-  border-radius: 1rem 1rem;
-}
-.card img {
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 1rem;
-  padding: 0.3rem;
-  margin: auto auto;
-}
+// .card {
+//   border-radius: 5% 5%;
+//   height: 380px;
+//   width: 350px;
+//   margin: 10px;
+//   padding: 0.6rem;
+//   border-radius: 1rem 1rem;
+// }
+// .card img {
+//   max-height: 300px;
+//   object-fit: cover;
+//   border-radius: 1rem;
+//   padding: 0.3rem;
+//   margin: auto auto;
+// }
 
-.card button {
-  margin-top: 2rem;
-}
+// .card button {
+//   margin-top: 2rem;
+// }
 
 .homePage {
   display: flex;
