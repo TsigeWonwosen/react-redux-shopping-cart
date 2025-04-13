@@ -11,27 +11,30 @@
   justify-content: space-between;
   align-items: center;
   padding: 0px 3rem;
-  color: #fff;
-  background: rgba(84, 16, 230, 0.568);
+  color: #3b3232;
+  background: #ffff;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0; /* required */
-  max-width: 34rem;
+  max-width: auto;
+  margin-left: auto;
   flex: 1;
   margin-right: 1rem;
-  background-color: transparent;
   border: none;
   box-shadow: none;
+  background: transparent;
 
   ul {
     &.links {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      gap: 5px;
       letter-spacing: 0.2rem;
       margin-left: 0;
       list-style-type: none;
@@ -41,22 +44,45 @@
       transition-duration: 0.4s;
       transition-timing-function: ease-in;
       li {
-        margin: 0 2px;
-        font-size: 1.2rem;
-
+        height: auto;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          color: #3b3232;
+          font-size: 1rem;
+          font-weight: 500;
+          letter-spacing: 0.1rem;
+          transition: all 0.3s ease-in-out;
+        }
         &:hover {
-          background-color: rgb(83, 135, 184);
-          border-radius: 4px;
+          color: rgba(83, 135, 184, 0.393);
+          border-radius: 2px;
+          background-color: transparent;
         }
       }
     }
   }
 }
 
+.cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 5rem;
+  height: 100%;
+}
 .logo {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   flex: 3;
-  z-index: 4;
   width: fit-content;
   max-width: 5rem;
   align-items: center;
@@ -64,14 +90,26 @@
 
   a {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff !important;
-    text-transform: capitalize;
-    font-family: "Pacifico", cursive;
+    color: #212020;
+    text-decoration: none;
+    text-transform: uppercase;
   }
 }
 
 .checkbtn {
   display: none;
+  color: #332929;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 110;
+  background: transparent;
+  border: none;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -82,6 +120,7 @@
     min-height: 50px;
 
     .checkbtn {
+      display: block;
       background: transparent;
       display: inline-block;
       position: absolute;
@@ -90,7 +129,7 @@
       top: 10px;
       right: 10px;
       cursor: pointer;
-      color: rgb(248, 242, 242);
+      color: rgb(53, 47, 47);
     }
 
     .nav {
@@ -104,13 +143,14 @@
         height: 0;
         z-index: 3;
         overflow: hidden;
-        background-color: rgb(88, 6, 6);
+        background-color: #ffff;
 
         li {
           margin: 0px 0px;
           padding: 2px 10px;
           font-size: 1.5rem;
           letter-spacing: 0.52rem;
+          color: #181515;
         }
         &.show-nav {
           width: 100%;
@@ -120,6 +160,7 @@
           left: 2px;
           max-height: 250px;
           height: 400px;
+          color: #181515;
         }
       }
     }
@@ -128,20 +169,20 @@
 
 @media screen and (max-width: 600px) {
   .navBar {
-    // height: auto;
-    // min-height: 50px;
-    // display: block;
-    // position: relative;
-    // .Shopinglogo {
-    //   display: block;
-    //   width: 100%;
-    //   max-width: 100%;
-    //   height: 5rem;
-    //   justify-content: center;
-    //   align-items: center;
-    //   margin-left: 2rem;
-    //   font-size: 3rem;
-    // }
+    height: auto;
+    min-height: 50px;
+    display: block;
+    position: relative;
+    .Shopinglogo {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: 5rem;
+      justify-content: center;
+      align-items: center;
+      margin-left: 2rem;
+      font-size: 3rem;
+    }
   }
 }
 

@@ -1,56 +1,52 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ShoppingCart, X } from "lucide-react";
 import "../NavBar.scss";
 
 export default function NavBar({ cartLen }) {
   const [navOpen, setNavOpen] = useState(false);
   const toggleTrueFalse = () => setNavOpen(!navOpen);
   return (
-    <div className='navBar'>
+    <div className="navBar">
       <button
-        className='checkbtn'
+        className="checkbtn"
         onClick={() => {
           toggleTrueFalse();
         }}
       >
-        <i className='material-icons Large'>dehaze</i>
+        {!navOpen && <i className="material-icons Large">dehaze</i>}
+        {navOpen && <X />}
       </button>
 
-      <div className='logo'>
-        <Link to='/'>Shoppi</Link>
+      <div className="logo">
+        <Link to="/">Habesha.</Link>
       </div>
-      <nav className='nav'>
-        <ul
-          className={`links ${navOpen ? "show-nav" : ""}`}
-        >
+      <nav className="nav">
+        <ul className={`links ${navOpen ? "show-nav" : ""}`}>
           <li>
-            <Link
-              to='/'
-              style={{
-                width: "110px",
-                display: "flex",
-                marginRight: "1rem",
-              }}
-            >
-              Home <i className='material-icons'>home</i>
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to='/product'>Product</Link>
+            <Link to="/product">Product</Link>
           </li>
           <li>
-            <Link to='/cart'>
-              <div       
-              >
-                <i className='large material-icons'>add_shopping_cart </i>
+            <a href="/order">Man</a>
+          </li>
+          <li>
+            <a href="/order">Woman</a>
+          </li>
+          <li>
+            <a href="/order">Kids</a>
+          </li>
+          <li>
+            <Link to="/cart">
+              <div className="cart">
+                <ShoppingCart />
                 <div>
                   {cartLen > 0 ? <h6 style={cartStyle}>{cartLen}+</h6> : ""}
                 </div>
               </div>
             </Link>
-          </li>
-          <li>
-            <a href='/order'>Credit</a>
           </li>
         </ul>
       </nav>
@@ -60,12 +56,21 @@ export default function NavBar({ cartLen }) {
 
 const cartStyle = {
   position: "absolute",
-  top: "-12px",
-  right: "-0.2px",
+  top: "-25px",
+  right: "-20px",
   borderRadius: "50%",
-  padding: " 0.2rem 0.2rem",
-  width: "27px",
-  height: "27px",
+  width: "22px",
+  height: "22px",
   background: "#e65100",
   color: "white",
+  fontSize: "0.7rem",
+  display: "flex",
+  justifyContent: "center",
+  letterSpacing: "0.1rem",
+  fontFamily: "sans-serif",
+  fontVariant: "small-caps",
+  fontStyle: "italic",
+  alignItems: "center",
+  fontWeight: "bold",
+  zIndex: "100",
 };
