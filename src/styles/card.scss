@@ -1,0 +1,111 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+.cardContainer .card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(16.66% - 1rem); /* 6 per row - full HD */
+  max-width: calc(16.66% - 1rem);
+  min-height: 300px;
+  box-sizing: border-box;
+  &:hover {
+    transition: all 0.5s;
+    transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(1.01);
+    opacity: 0.7;
+    z-index: 1;
+  }
+}
+
+.card .activator {
+  width: 100%;
+  min-height: 60%;
+  max-height: 180px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+}
+
+.cardContent {
+  width: 100% !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  background: #f1efef;
+  padding: 0.4rem 0.5rem;
+}
+
+.cardContent h6 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #252323;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; /* or set a fixed width */
+}
+
+.card-price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h5 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+}
+
+.btnAdd {
+  background-color: #007b5e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.3s ease;
+  &:hover {
+    color: rgb(214, 231, 211);
+    background-color: #005f46;
+  }
+}
+
+/* Adjust for tablets */
+@media (max-width: 1200px) {
+  .cardContainer .card {
+    flex: 1 1 calc(25% - 1rem); /* 4 per row */
+    max-width: calc(25% - 1rem);
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .cardContainer.card {
+    flex: 1 1 calc(50% - 1rem); /* 2 per row */
+    max-width: calc(50% - 1rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .cardContainer .card {
+    flex: 1 1 100%; /* 1 per row */
+    max-width: 100%;
+  }
+}

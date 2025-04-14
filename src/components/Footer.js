@@ -33,6 +33,7 @@ export default function Footer() {
                     className="grey-text text-lighten-3"
                     href="https://www.facebook.com/thethopia"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <i className="fa fa-linkedin-square"></i>
                   </a>
