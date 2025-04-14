@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, X } from "lucide-react";
-import "../NavBar.scss";
+import "../styles/NavBar.scss";
 
 export default function NavBar({ cartLen }) {
   const [navOpen, setNavOpen] = useState(false);
@@ -19,7 +19,7 @@ export default function NavBar({ cartLen }) {
       </button>
 
       <div className="logo">
-        <Link to="/">Habesha.</Link>
+        <Link to="/">The Ethiopian.</Link>
       </div>
       <nav className="nav">
         <ul className={`links ${navOpen ? "show-nav" : ""}`}>
@@ -54,17 +54,17 @@ export default function NavBar({ cartLen }) {
 
 const cartStyle = {
   position: "absolute",
-  top: "-25px",
-  right: "-20px",
+  top: "-5px",
+  right: "-5px",
   borderRadius: "50%",
-  width: "22px",
+  width: "25px",
   height: "22px",
   background: "#e65100",
   color: "white",
-  fontSize: "0.7rem",
+  fontSize: "0.8rem",
   display: "flex",
   justifyContent: "center",
-  letterSpacing: "0.1rem",
+  letterSpacing: "1px",
   fontFamily: "sans-serif",
   fontVariant: "small-caps",
   fontStyle: "italic",

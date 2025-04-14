@@ -88,13 +88,15 @@
 .logo {
   font-size: 1.2rem;
   flex: 3;
-  width: fit-content;
-  max-width: 5rem;
+  width: auto;
+  max-width: 150px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   justify-content: center;
 
   a {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Poppins, arial, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #191717;
     text-decoration: none;
     text-transform: capitalize;
