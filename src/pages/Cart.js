@@ -7,8 +7,8 @@ import {
   clearFromCart,
   totalCart,
 } from "../redux/action/cartAction";
-import CartItem from "./CartItem";
-import PayPal from "./Paypal";
+import CartItem from "../components/CartItem";
+import PayPal from "../components/Paypal";
 
 class Cart extends React.Component {
   componentDidMount() {
@@ -31,34 +31,40 @@ class Cart extends React.Component {
 
     if (carT.length === 0) {
       return (
-        <section className='container cart'>
+        <section className="container cart">
           <header style={{ height: "calc(100vh - 18px)" }}>
             <h3>Your Bag</h3>
-            <h4 className='empty-cart'>is currently empty</h4>
+            <h4 className="empty-cart">is currently empty</h4>
           </header>
         </section>
       );
     }
 
     const renderCart = carT.map((c) => {
-      return <CartItem key={c.id} {...c} deleteFromCart={deleteFromCart} />;
+      return (
+        <CartItem
+          key={c.id}
+          {...c}
+          deleteFromCart={deleteFromCart}
+        />
+      );
     });
 
     return (
-      <section className='container cart'>
+      <section className="container cart">
         <header>
           <h4>Your Bag</h4>
         </header>
         <article>
           <div>
-            <div className='cartHeader row'>
-              <div className='col s4 m3'>
+            <div className="cartHeader row">
+              <div className="col s4 m3">
                 <h5>Title</h5>
               </div>
-              <div className='col s4 m3'>
+              <div className="col s4 m3">
                 <h5>Price</h5>
               </div>
-              <div className='col s4 m3'>
+              <div className="col s4 m3">
                 <h5>Total</h5>
               </div>
             </div>
@@ -77,8 +83,8 @@ class Cart extends React.Component {
           }}
         />
 
-        <footer className='cartFooter'>
-          <div className='cart-total'>
+        <footer className="cartFooter">
+          <div className="cart-total">
             <h4>
               <label>Subtotal</label>
               <span>{util.formatCurrency(totalPrice)}</span>
@@ -104,7 +110,7 @@ class Cart extends React.Component {
           </div>
           <div>
             <button
-              className='btn clear-btn'
+              className="btn clear-btn"
               onClick={() => {
                 resetProduct();
                 totalCart();

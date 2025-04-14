@@ -16,7 +16,7 @@ export default function ProductContainer({
           fontSize: "40",
           margin: "auto",
           marginBottom: "1rem",
-          border: " 1px solid rgba(57, 72, 171, 0.76)",
+          border: " 1px solid rgba(22, 22, 23, 0.21)",
         }}
       />
       <section className="container cardContainer">

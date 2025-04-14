@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import { connect } from "react-redux";
 
-import Cart from "./components/Cart";
+import Cart from "./pages/Cart";
 import NavBar from "./components/NavBar";
+import Kids from "./pages/Kids";
+import Man from "./pages/Man";
+import Woman from "./pages/Woman";
 import VideoBackground from "./components/videoBackgraund/VideoBackground";
 import Footer from "./components/Footer";
 
@@ -16,8 +19,7 @@ import {
   handleCart,
 } from "./redux/action/cartAction";
 
-import fetchProductNew from './utility/fetchProducts'
-
+import fetchProductNew from "./utility/fetchProducts";
 
 class App extends React.Component {
   handleAddProduct = (product) => {
@@ -25,11 +27,10 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetchProductNew()
+    fetchProductNew();
     this.props.fetchProduct();
   }
 
-  
   render() {
     const cartLen =
       this.props.cart && this.props.cart.reduce((a, b) => a + b.units, 0);
@@ -39,17 +40,41 @@ class App extends React.Component {
         <NavBar cartLen={cartLen} />
 
         <Switch>
-          <Route exact path='/'>
+          <Route
+            exact
+            path="/"
+          >
             {/* <Home /> */}
             <VideoBackground />
           </Route>
-          <Route path='/cart'>
+          <Route path="/cart">
             <Cart
               deleteFromCart={this.props.deleteFromCart}
               handleAddProduct={this.handleAddProduct}
             />
           </Route>
-          <Route path='/product'>
+          <Route path="/kids">
+            <Kids
+              handleAddProduct={this.handleAddProduct}
+              handleInCart={this.props.handleInCart}
+              product={this.props.product}
+            />
+          </Route>
+          <Route path="/woman">
+            <Woman
+              handleAddProduct={this.handleAddProduct}
+              handleInCart={this.props.handleInCart}
+              product={this.props.product}
+            />
+          </Route>
+          <Route path="/man">
+            <Man
+              handleAddProduct={this.handleAddProduct}
+              handleInCart={this.props.handleInCart}
+              product={this.props.product}
+            />
+          </Route>
+          <Route path="/product">
             <ProductContainer
               handleAddProduct={this.handleAddProduct}
               handleInCart={this.props.handleInCart}
@@ -63,7 +88,6 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  
   cart: state.cart.cart,
   product: state.product.filteredItems,
 });
@@ -74,7 +98,7 @@ const mapActionToProps = (dispatch, ownProps) => {
     deleteFromCart: (id) => dispatch(deleteFromCart(id)),
     fetchProduct: () => dispatch(fetchProduct()),
     handleInCart: (id) => dispatch(handleCart(id)),
-    fetchProductNew : dispatch(fetchProductNew())
+    fetchProductNew: dispatch(fetchProductNew()),
   };
 };
 

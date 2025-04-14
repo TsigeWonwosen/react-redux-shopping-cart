@@ -27,6 +27,7 @@ body {
   width: 95%;
   margin: 0.5rem auto;
   transition: all 0.5s;
+  font-family: Poppins, "trebuchet ms";
 }
 /* --------------- Hero ---------------- */
 
@@ -115,9 +116,8 @@ span {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  max-width: 450px;
-  min-width: 250px;
-  // max-height: 420px;
+  max-width: 200px;
+  // min-width: 250px;
   height: auto;
   transition: all 1s;
   padding: 0 !important;

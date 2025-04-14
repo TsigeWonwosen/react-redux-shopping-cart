@@ -30,23 +30,21 @@ export default function NavBar({ cartLen }) {
             <Link to="/product">Product</Link>
           </li>
           <li>
-            <a href="/order">Man</a>
+            <a href="/man">Men</a>
           </li>
           <li>
-            <a href="/order">Woman</a>
+            <a href="/woman">Women</a>
           </li>
           <li>
-            <a href="/order">Kids</a>
+            <a href="/kids">Kids</a>
           </li>
           <li>
-            <Link to="/cart">
-              <div className="cart">
+            <div className="cartIcon">
+              <Link to="/cart">
                 <ShoppingCart />
-                <div>
-                  {cartLen > 0 ? <h6 style={cartStyle}>{cartLen}+</h6> : ""}
-                </div>
-              </div>
-            </Link>
+              </Link>
+              {cartLen > 0 ? <h6 style={cartStyle}>{cartLen}+</h6> : ""}
+            </div>
           </li>
         </ul>
       </nav>

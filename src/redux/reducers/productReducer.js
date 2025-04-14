@@ -9,22 +9,18 @@ import {
   FETCH_PRODUCTS_SUCCESS,
 } from "../action/type";
 
-
-
 const initialState = {
-  pending:false,
-  items: [
-    
-  ],
+  pending: false,
+  items: [],
   filteredItems: [],
-  error:null,
+  error: null,
   id: 0,
 };
 
-export default (state = initialState, action) => {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCT:
-      console.log("Fetch Product **** ")
+      console.log("Fetch Product **** ");
       const newState = state.items.concat(action.payload);
       newState.InCart = false;
 
@@ -33,18 +29,23 @@ export default (state = initialState, action) => {
         items: newState,
         filteredItems: newState,
       };
-      case FETCH_PRODUCTS_ERROR:
-      console.log("Fetch Error **** ")
+    case FETCH_PRODUCTS_ERROR:
+      console.log("Fetch Error **** ");
 
-        return {...state,error: action.error,pending:false};
-     case FETCH_PRODUCTS_PENDING:
-      console.log("Fetch Pending **** ")
+      return { ...state, error: action.error, pending: false };
+    case FETCH_PRODUCTS_PENDING:
+      console.log("Fetch Pending **** ");
 
-          return {...state,pending:true}
-     case FETCH_PRODUCTS_SUCCESS:
-      console.log("Fetch Success **** ")
+      return { ...state, pending: true };
+    case FETCH_PRODUCTS_SUCCESS:
+      console.log("Fetch Success **** ");
 
-            return {...state,items: action.products,filteredItems:action.products,pending:false}
+      return {
+        ...state,
+        items: action.products,
+        filteredItems: action.products,
+        pending: false,
+      };
     case HANDLE_IN_CART:
       return {
         ...state,
@@ -56,7 +57,6 @@ export default (state = initialState, action) => {
         }),
       };
     case FILTERED_PRODUCT:
-
       return {
         ...state,
         filteredItems: action.payload.items,
@@ -74,3 +74,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default productReducer;

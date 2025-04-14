@@ -11,7 +11,7 @@ const InitialState = {
   totalPrice: 0,
 };
 
-export default (state = InitialState, action) => {
+const cartReducer = (state = InitialState, action) => {
   switch (action.type) {
     case ADD_CART:
       const product = action.payload;
@@ -87,6 +87,8 @@ export default (state = InitialState, action) => {
       return state;
   }
 };
+
+export default cartReducer;
 
 const findProductIndex = (cart, productID) => {
   return cart.findIndex((p) => p.id === productID);
