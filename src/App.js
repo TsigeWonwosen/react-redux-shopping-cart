@@ -1,16 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./styles/App.scss";
 import { connect } from "react-redux";
-
 import Cart from "./pages/Cart";
 import NavBar from "./components/NavBar";
 import Kids from "./pages/Kids";
 import Man from "./pages/Man";
 import Woman from "./pages/Woman";
-import VideoBackground from "./components/videoBackgraund/VideoBackground";
 import Footer from "./components/Footer";
-
 import ProductContainer from "./components/ProductContainer";
 import {
   addToCart,
@@ -18,8 +14,10 @@ import {
   fetchProduct,
   handleCart,
 } from "./redux/action/cartAction";
+import "./styles/App.scss";
 
 import fetchProductNew from "./utility/fetchProducts";
+import Home from "./components/Home";
 
 class App extends React.Component {
   handleAddProduct = (product) => {
@@ -44,8 +42,8 @@ class App extends React.Component {
             exact
             path="/"
           >
-            {/* <Home /> */}
-            <VideoBackground />
+            <Home />
+            {/* <VideoBackground /> */}
           </Route>
           <Route path="/cart">
             <Cart

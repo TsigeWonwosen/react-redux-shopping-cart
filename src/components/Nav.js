@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Navigation = styled.header`
   width: 100%;
+  height: 100px;
   border-bottom: 4px solid #222;
   z-index: 1;
   display: flex;
@@ -93,12 +94,15 @@ const Navigation = styled.header`
     }
   }
     @media only screen and (max-width: 600px) {
-      height: auto;
+      height: 100px;
+      padding: 0px;
       min-height: 50px;
       display: block;
       position: relative;
       .logo {
         width: 100%;
+        height: 100px;
+        padding: 0px;
         display: block;
         padding-top: 20px;
         margin: 0px;
@@ -173,42 +177,51 @@ class Nav extends Component {
 
     return (
       <Navigation>
-        <div className='logo  red lighten-2'>
-          <Link to='/'>
+        <div className="logo ">
+          <Link to="/">
             <p>React Responsive Navigation</p>
             <em>
-              <div className='letterhead'>
-                <span className='name'>kentorry</span>
-                <span className='gray'>.io</span>
+              <div className="letterhead">
+                <span className="name">kentorry</span>
+                <span className="gray">.io</span>
               </div>
             </em>
           </Link>
         </div>
-        <nav className='nav purple darken-6'>
+        <nav className="nav purple darken-6">
           <i
-            className='fa fa-bars'
-            aria-hidden='true'
+            className="fa fa-bars"
+            aria-hidden="true"
             onClick={(e) => this.handleToggle(e)}
           />
 
           <button
-            className='checkbtn'
+            className="checkbtn"
             onClick={(e) => {
               console.log("Nav Open: " + isExpanded);
 
               this.handleToggle(e);
             }}
           >
-            <i className='material-icons'>dehaze</i>
+            <i className="material-icons">dehaze</i>
           </button>
           <ul className={`collapsed ${isExpanded ? "is-expanded" : ""}`}>
-            <NavLink activeClassName='active' to='/'>
+            <NavLink
+              activeClassName="active"
+              to="/"
+            >
               <li>Home</li>
             </NavLink>
-            <NavLink activeClassName='active' to='/product'>
+            <NavLink
+              activeClassName="active"
+              to="/product"
+            >
               <li>Product</li>
             </NavLink>
-            <NavLink activeClassName='active' to='/cart'>
+            <NavLink
+              activeClassName="active"
+              to="/cart"
+            >
               <li>Cart</li>
             </NavLink>
           </ul>

@@ -1,68 +1,82 @@
-import React from "react";
-
 import "../styles/Footer.scss";
 
-export default function Footer() {
+import { Link } from "react-router-dom";
+const Footer = () => {
   return (
-    <footer className="footerContainer">
-      <div className="container">
-        <div className="row">
-          <div className="col l6 m8 s12">
-            <h5 className="white-text">The Ethiopian</h5>
-            <p className="grey-text text-lighten-4">
-              The Ethiopian is the marketplace where you can get easy access for
-              selling and buying products.
-            </p>
-          </div>
-          <div className="col l4  m4 offset-l2 s12">
-            <h5 className="white-text">Follow me on social media</h5>
-            <div className="footer-fab">
-              <ul className="footer-fab-small">
-                <li>
-                  <a
-                    className="grey-text text-lighten-3"
-                    href="https://github.com/TsigeWonwosen/react-redux-shopping-cart"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fa fa-github-square"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="grey-text text-lighten-3"
-                    href="https://www.facebook.com/thethopia"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fa fa-linkedin-square"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="grey-text text-lighten-3"
-                    href="#!"
-                  >
-                    <i className="fa fa-facebook-square"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="grey-text text-lighten-3"
-                    href="#!"
-                  >
-                    <i className="fa fa-youtube-square"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <footer className="footer">
+      <div className="footer__container">
+        {/* Logo + Description */}
+        <div className="footer__section">
+          <h2 className="footer__logo">The Ethiopian</h2>
+          <p className="footer__text">
+            Your go-to destination for men’s, women’s, kids’ fashion &
+            electronics.
+          </p>
+        </div>
+
+        {/* Shop */}
+        <div className="footer__section">
+          <h3 className="footer__title">Shop</h3>
+          <ul className="footer__list">
+            <li>
+              <Link to="/man">Men</Link>
+            </li>
+            <li>
+              <Link to="woman">Women</Link>
+            </li>
+            <li>
+              <Link to="/kids">Kids</Link>
+            </li>
+            <li>
+              <Link to="#">Electronics</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Customer Service */}
+        <div className="footer__section">
+          <h3 className="footer__title">Customer Service</h3>
+          <ul className="footer__list">
+            <li>
+              <Link to="#">Help Center</Link>
+            </li>
+            <li>
+              <Link to="#">Track Order</Link>
+            </li>
+            <li>
+              <Link to="#">Returns</Link>
+            </li>
+            <li>
+              <Link to="#">Contact Us</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Info */}
+        <div className="footer__section">
+          <h3 className="footer__title">Info</h3>
+          <ul className="footer__list">
+            <li>
+              <Link to="#">About Us</Link>
+            </li>
+            <li>
+              <Link to="#">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link to="#">Terms & Conditions</Link>
+            </li>
+            <li>
+              <Link to="#">Careers</Link>
+            </li>
+          </ul>
         </div>
       </div>
-      <div className="footerCopyright">
-        © Copyright {new Date().getFullYear()} The Ethiopian. All rights
-        reserved.
+
+      <div className="footer__bottom">
+        © {new Date().getFullYear()} The Ethiopian. All rights reserved.
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

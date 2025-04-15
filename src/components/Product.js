@@ -22,7 +22,7 @@ export default function Product({
       />
       <div className="cardContent">
         <h6> {title}</h6>
-        <span className="card-price ">
+        <span className="card-price">
           <h5>Price </h5>
           <h5>{util.formatCurrency(price)}</h5>
         </span>

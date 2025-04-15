@@ -1,32 +1,61 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-class Home extends Component {
-  render() {
-    return (
-      <header className="hero">
-        <div className="banner">
-          <h1 className="banner-title">React Redux E-Commerce ...</h1>
-          <div className="home-button">
-            <Link
-              to="/product"
-              className="banner-btn"
-            >
-              Our Products
-            </Link>
-            <button className="banner-btn github">
-              <a
-                href="https://github.com/TsigeWonwosen/react-redux-shopping-cart"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Github
-              </a>
-            </button>
+import "../styles/Home.scss";
+import ProductCard from "../components/Product";
+import categories from "../data/Data.json";
+import featuredProducts from "../data/Data.json";
+import Catagory from "./Category";
+const Home = () => {
+  return (
+    <>
+      <div className="home">
+        {/* Hero */}
+        <section className="hero">
+          <div className="hero__content">
+            <h1>Welcome to The Ethiopian</h1>
+            <p>Fashion for men, women, kids, and top-notch electronics.</p>
+            <button className="hero__btn">Explore Now</button>
           </div>
-        </div>
-      </header>
-    );
-  }
-}
+        </section>
+
+        {/* Categories */}
+        <section className="hero-categories">
+          <h2 className="section-title">Shop by Category</h2>
+          <div className="hero-categories__grid">
+            {categories.slice(0, 6).map((cat) => (
+              <ProductCard
+                key={cat.id}
+                {...cat}
+              />
+            ))}
+          </div>
+        </section>
+        {/* choose of best catagories */}
+        <section className="best-categories">
+          <p>Looking for Best products</p>
+          <h2 className="section-title">Choose of Best category</h2>
+          <div className="best-categories__grid">
+            {categories.slice(6, 12).map((cat) => (
+              <Catagory
+                key={cat.id}
+                {...cat}
+              />
+            ))}
+          </div>
+        </section>
+        {/* Featured */}
+        <section className="hero-featured">
+          <h2 className="section-title">Featured Products</h2>
+          <div className="product-grid">
+            {featuredProducts.slice(14, 20).map((product) => (
+              <ProductCard
+                key={product.id}
+                {...product}
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+    </>
+  );
+};
+
 export default Home;
