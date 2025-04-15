@@ -19,7 +19,7 @@ const Home = () => {
         {/* Categories */}
         <section className="hero-categories">
           <h2 className="section-title">Shop by Category</h2>
-          <div className="hero-categories__grid">
+          <div className="hero-grid">
             {categories.slice(0, 6).map((cat) => (
               <ProductCard
                 key={cat.id}
@@ -32,7 +32,7 @@ const Home = () => {
         <section className="best-categories">
           <p>Looking for Best products</p>
           <h2 className="section-title">Choose of Best category</h2>
-          <div className="best-categories__grid">
+          <div className="best-grid">
             {categories.slice(6, 12).map((cat) => (
               <Catagory
                 key={cat.id}

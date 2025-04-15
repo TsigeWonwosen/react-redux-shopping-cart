@@ -19,7 +19,7 @@ export default function ProductContainer({
           border: " 1px solid rgba(22, 22, 23, 0.21)",
         }}
       />
-      <section className="container cardContainer">
+      <section className="cardContainer">
         {product.map((prod) => {
           return (
             <Product

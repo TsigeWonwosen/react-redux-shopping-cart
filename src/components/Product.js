@@ -14,7 +14,7 @@ export default function Product({
   handleInCart,
 }) {
   return (
-    <div className="card">
+    <div className="product-card">
       <img
         className="activator"
         src={image}
