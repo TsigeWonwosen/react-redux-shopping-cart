@@ -4,7 +4,6 @@ import "../styles/card.scss";
 
 export default function Product({
   id,
-  name,
   description,
   image,
   price,
@@ -18,7 +17,7 @@ export default function Product({
       <img
         className="activator"
         src={image}
-        alt={name}
+        alt={title}
       />
       <div className="cardContent">
         <h6> {title}</h6>
@@ -33,7 +32,7 @@ export default function Product({
         onClick={() => {
           handleAddProduct({
             id,
-            name,
+            title,
             description,
             image,
             price,

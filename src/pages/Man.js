@@ -7,7 +7,6 @@ function Man({ product, handleAddProduct, deleteFromCart, handleInCart }) {
   );
   return (
     <div className="container">
-      <h2>Only Man Page.</h2>
       <section className="container cardContainer">
         {filteredItems.length === 0 && (
           <div className="loading">

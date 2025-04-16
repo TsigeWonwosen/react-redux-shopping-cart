@@ -14,8 +14,6 @@ export default function Woman({
   );
   return (
     <div className="App container">
-      <h2>Only Woman Page.</h2>
-
       <section className="container cardContainer">
         {filteredItems.length === 0 && (
           <div className="loading">

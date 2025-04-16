@@ -14,43 +14,34 @@ import {
 // import { PRODUCTS } from "../../data/Data.json";
 // let PRODUCTS = []
 
-
 // fetch("https://fakestoreapi.com/products").then(res => res.json()).then(data => PRODUCTS = data)
 // .catch(error => console.log(error))
-// // Fetch Product 
-
+// // Fetch Product
 
 export function fetchProductsPending() {
-  console.log('Pending')
-    return {
-        type: FETCH_PRODUCTS_PENDING
-    }
+  return {
+    type: FETCH_PRODUCTS_PENDING,
+  };
 }
 
 export function fetchProductsSuccess(products) {
-  console.log('Success ...')
-
-    return {
-        type: FETCH_PRODUCTS_SUCCESS,
-        products: products
-    }
+  return {
+    type: FETCH_PRODUCTS_SUCCESS,
+    products: products,
+  };
 }
 
 export function fetchProductsError(error) {
-
-  console.log('Error')
-
-    return {
-        type: FETCH_PRODUCTS_ERROR,
-        error: error
-    }
+  return {
+    type: FETCH_PRODUCTS_ERROR,
+    error: error,
+  };
 }
-
 
 export const fetchProduct = () => {
   return {
     type: FETCH_PRODUCT,
-    payload: [] ,
+    payload: [],
   };
 };
 

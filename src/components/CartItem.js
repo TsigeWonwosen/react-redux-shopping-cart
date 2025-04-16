@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { connect } from "react-redux";
 import {
   DELETE_CART,
@@ -12,7 +11,7 @@ import util from "../utility/util";
 const CartItem = ({
   image,
   price,
-  name,
+  title,
   description,
   total,
   units,
@@ -20,45 +19,33 @@ const CartItem = ({
   decrease,
   remove,
 }) => {
-  const [show, setShow] = useState(true);
   const itemRender = () => (
-    <div className='cartItem row container'>
-      <img src={image} alt={name} className='col s12 m3' />
-      <div className='col s6 m7'>
-        <div className='cartText row'>
-          <div className='col s12 m5'>
-            <div className='itemDescription'>
-              <h5>{name}</h5>
-              <button
-                onClick={() => {
-                  setShow(!show);
-                }}
-              >
-                <i className='material-icons tiny '>
-                  {!show ? "arrow_drop_up" : "arrow_drop_down"}
-                </i>
-              </button>
-            </div>
+    <div className="flex w-full justify-between items-center border-b-[1px] border-gray-900/50 py-2 px-4 gap-2">
+      <img
+        src={image}
+        alt={title}
+        className="h-[60px] w-[80px] object-cover object-top rounded-md"
+      />
+      <div className="col s6 m7">
+        <div className="flex justify-start flex-col items-center gap-2 max-w-[350px] p-2">
+          <h5 className="text-start w-full font-semibold">{title}</h5>
 
-            <h6 style={{ display: !show ? "block" : "none" }}>{description}</h6>
-          </div>
-          <div className='itemPrice col s8 m3'>
-            <h6 className='item-price'>{util.formatCurrency(price)}</h6>
-          </div>
-          <div className='itemPrice col s8 m4'>
-            <h6 className='item-price'>{util.formatCurrency(total)}</h6>
-          </div>
+          <h6 className="line-clamp-3 text-sm font-light">{description}</h6>
         </div>
       </div>
 
-      <div className='cartItemButton col s8 m2'>
+      <div className="w-[20%]">
+        <h6 className="item-price">{util.formatCurrency(price)}</h6>
+        <h6 className="item-price">{util.formatCurrency(total)}</h6>
+      </div>
+      <div className="w-[20%] flex justify-between items-center">
         <button onClick={() => remove()}>
-          <i className='material-icons tiny remove '>delete_forever</i>
+          <i className="material-icons tiny remove ">delete_forever</i>
         </button>
 
-        <div className='card-action'>
+        <div className="card-action">
           <button onClick={() => increase()}>
-            <i className='material-icons tiny'>add</i>
+            <i className="material-icons tiny">add</i>
           </button>
           {units}
           <button
@@ -69,7 +56,7 @@ const CartItem = ({
               return decrease();
             }}
           >
-            <i className='material-icons tiny'>indeterminate_check_box</i>
+            <i className="material-icons tiny">indeterminate_check_box</i>
           </button>
         </div>
       </div>

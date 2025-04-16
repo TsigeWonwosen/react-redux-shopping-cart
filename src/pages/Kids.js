@@ -1,9 +1,33 @@
 import React from "react";
+import productDatas from "../data/Data.json";
+import Product from "../components/Product";
 
-function Kids() {
+function Kids({ product, handleAddProduct, deleteFromCart, handleInCart }) {
+  const filteredItems = productDatas.filter((prod) =>
+    prod.category.toLowerCase().includes("kid")
+  );
+
   return (
     <div className="container">
-      <h2>Only Kids Page.</h2>
+      <section className="cardContainer">
+        {filteredItems.length === 0 && (
+          <div className="loading">
+            <h2>Loading...</h2>
+          </div>
+        )}
+        {filteredItems.length > 0 &&
+          filteredItems.map((prod) => {
+            return (
+              <Product
+                key={prod.id}
+                {...prod}
+                handleAddProduct={handleAddProduct}
+                deleteFromCart={deleteFromCart}
+                handleInCart={handleInCart}
+              />
+            );
+          })}
+      </section>
     </div>
   );
 }

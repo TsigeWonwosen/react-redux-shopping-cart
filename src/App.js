@@ -8,16 +8,16 @@ import Man from "./pages/Man";
 import Woman from "./pages/Woman";
 import Footer from "./components/Footer";
 import ProductContainer from "./components/ProductContainer";
+import Home from "./components/Home";
+import fetchProductNew from "./utility/fetchProducts";
 import {
   addToCart,
   deleteFromCart,
   fetchProduct,
   handleCart,
 } from "./redux/action/cartAction";
-import "./styles/App.scss";
 
-import fetchProductNew from "./utility/fetchProducts";
-import Home from "./components/Home";
+import "./styles/App.scss";
 
 class App extends React.Component {
   handleAddProduct = (product) => {

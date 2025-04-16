@@ -1,5 +1,3 @@
-// fetchProducts.js
-
 import {
   fetchProductsPending,
   fetchProductsSuccess,
@@ -14,7 +12,6 @@ function fetchProducts() {
         if (res.error) {
           throw res.error;
         }
-        console.log(res);
         dispatch(fetchProductsSuccess(res));
         return res;
       })

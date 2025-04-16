@@ -20,7 +20,6 @@ const initialState = {
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCT:
-      console.log("Fetch Product **** ");
       const newState = state.items.concat(action.payload);
       newState.InCart = false;
 
@@ -30,16 +29,10 @@ const productReducer = (state = initialState, action) => {
         filteredItems: newState,
       };
     case FETCH_PRODUCTS_ERROR:
-      console.log("Fetch Error **** ");
-
       return { ...state, error: action.error, pending: false };
     case FETCH_PRODUCTS_PENDING:
-      console.log("Fetch Pending **** ");
-
       return { ...state, pending: true };
     case FETCH_PRODUCTS_SUCCESS:
-      console.log("Fetch Success **** ");
-
       return {
         ...state,
         items: action.products,

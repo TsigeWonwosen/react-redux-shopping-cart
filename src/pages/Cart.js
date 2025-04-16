@@ -9,6 +9,7 @@ import {
 } from "../redux/action/cartAction";
 import CartItem from "../components/CartItem";
 import PayPal from "../components/Paypal";
+import { CircleCheck } from "lucide-react";
 
 class Cart extends React.Component {
   componentDidMount() {
@@ -39,8 +40,8 @@ class Cart extends React.Component {
         </section>
       );
     }
-
     const renderCart = carT.map((c) => {
+      console.log(c);
       return (
         <CartItem
           key={c.id}
@@ -51,76 +52,76 @@ class Cart extends React.Component {
     });
 
     return (
-      <section className="container cart">
-        <header>
-          <h4>Your Bag</h4>
+      <section className="flex flex-col justify-center items-center my-9 gap-4 rounded-md  px-9 w-full h-full">
+        <header className="flex justify-between px-4 py-2 items-center border-[1px] w-[80%] h-[60px] border-gray-900/50 gap-2 rounded-md bg-white">
+          <div className="flex justify-start  items-center gap-2">
+            <CircleCheck className="text-green-400" />
+            <h4>{carT[carT.length - 1].title}has been added to your cart.</h4>
+          </div>
+          <button
+            className="btn"
+            onClick={() => {
+              history.push("/product");
+            }}
+          >
+            Continue Shopping
+          </button>
         </header>
-        <article>
-          <div>
-            <div className="cartHeader row">
-              <div className="col s4 m3">
-                <h5>Title</h5>
+        <div className="w-full h-full flex  justify-start items-center gap-2  bg-red-600/30 rounded-md">
+          <article className="w-3/4 px-3 py-2 mt-4">
+            <div className=" bg-white shadow-md rounded-sm p-4 w-[100%] flex justify-between items-center">
+              <div className="">
+                <h5>Product</h5>
               </div>
-              <div className="col s4 m3">
+              <div className="">
                 <h5>Price</h5>
               </div>
-              <div className="col s4 m3">
+              <div className="">
                 <h5>Total</h5>
               </div>
             </div>
-            <hr />
-          </div>
+            <div className="w-full h-full bg-white ">{renderCart}</div>
+          </article>
 
-          <div>{renderCart}</div>
-        </article>
-        <hr
-          style={{
-            width: "80%",
-            fontSize: "40",
-            marginLeft: "10%",
-            marginBottom: "1rem",
-            border: " 1px solid #3949ab",
-          }}
-        />
-
-        <footer className="cartFooter">
-          <div className="cart-total">
-            <h4>
-              <label>Subtotal</label>
-              <span>{util.formatCurrency(totalPrice)}</span>
-            </h4>
-            <h4>
-              <label>Tax</label>
-              <span>{util.formatCurrency(Tax)}</span>
-            </h4>
-            <h4>
-              <label>Total</label>
-              <span>{util.formatCurrency(Total)}</span>
-            </h4>
-            <h4>
-              <label></label>
-              <span>
-                <PayPal
-                  total={newTotal}
-                  clearFromCart={clearFromCart}
-                  history={history}
-                />
-              </span>
-            </h4>
-          </div>
-          <div>
-            <button
-              className="btn clear-btn"
-              onClick={() => {
-                resetProduct();
-                totalCart();
-                history.push("/product");
-              }}
-            >
-              Clear Cart
-            </button>
-          </div>
-        </footer>
+          <footer className="w-1/4 h-[100%] flex flex-col justify-center bg-green-500/35 py-5">
+            <div className=" h-full w-full px-3 py-2 mt-4">
+              <section className="flex justify-between items-center">
+                <label>Subtotal</label>
+                <span>{util.formatCurrency(totalPrice)}</span>
+              </section>
+              <section className="flex justify-between items-center">
+                <label>Tax</label>
+                <span>{util.formatCurrency(Tax)}</span>
+              </section>
+              <section className="flex justify-between items-center">
+                <label>Total</label>
+                <span>{util.formatCurrency(Total)}</span>
+              </section>
+              <section className="flex justify-between items-center">
+                <label></label>
+                <span>
+                  <PayPal
+                    total={newTotal}
+                    clearFromCart={clearFromCart}
+                    history={history}
+                  />
+                </span>
+              </section>
+            </div>
+            <div className="flex justify-center items-center mt-4 w-full">
+              <button
+                className="btn clear-btn"
+                onClick={() => {
+                  resetProduct();
+                  totalCart();
+                  history.push("/product");
+                }}
+              >
+                Clear Cart
+              </button>
+            </div>
+          </footer>
+        </div>
       </section>
     );
   }

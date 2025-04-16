@@ -93,6 +93,7 @@
     }
   }
 }
+
 // Best Categories
 
 .best-categories {
@@ -140,27 +141,3 @@
     padding: 40px 20px;
   }
 }
-
-/* Adjust for tablets */
-// @media (max-width: 1200px) {
-//   .product-grid {
-//     flex: 1 1 calc(25% - 1rem); /* 4 per row */
-//     max-width: calc(25% - 1rem);
-//   }
-// }
-
-// /* Small tablets / large phones */
-// @media (max-width: 768px) {
-//   .product-grid {
-//     flex: 1 1 calc(50% - 1rem); /* 2 per row */
-//     max-width: calc(50% - 1rem);
-//   }
-// }
-
-// /* Mobile */
-// @media (max-width: 480px) {
-//   .product-grid {
-//     flex: 1 1 100%; /* 1 per row */
-//     max-width: 100%;
-//   }
-// }
