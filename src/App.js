@@ -35,51 +35,57 @@ class App extends React.Component {
 
     return (
       <Router>
-        <NavBar cartLen={cartLen} />
+        <div className="min-h-screen flex flex-col">
+          <NavBar cartLen={cartLen} />
 
-        <Switch>
-          <Route
-            exact
-            path="/"
-          >
-            <Home />
-            {/* <VideoBackground /> */}
-          </Route>
-          <Route path="/cart">
-            <Cart
-              deleteFromCart={this.props.deleteFromCart}
-              handleAddProduct={this.handleAddProduct}
-            />
-          </Route>
-          <Route path="/kids">
-            <Kids
-              handleAddProduct={this.handleAddProduct}
-              handleInCart={this.props.handleInCart}
-              product={this.props.product}
-            />
-          </Route>
-          <Route path="/woman">
-            <Woman
-              handleAddProduct={this.handleAddProduct}
-              handleInCart={this.props.handleInCart}
-              product={this.props.product}
-            />
-          </Route>
-          <Route path="/man">
-            <Man
-              handleAddProduct={this.handleAddProduct}
-              handleInCart={this.props.handleInCart}
-              product={this.props.product}
-            />
-          </Route>
-          <Route path="/product">
-            <ProductContainer
-              handleAddProduct={this.handleAddProduct}
-              handleInCart={this.props.handleInCart}
-              product={this.props.product}
-            />
-          </Route>
-        </Switch>
+          <Switch>
+            <Route
+              exact
+              path="/"
+            >
+              <Home />
+              {/* <VideoBackground /> */}
+            </Route>
+            <Route
+              path="/cart"
+              className="h-full flex flex-col"
+            >
+              <Cart
+                deleteFromCart={this.props.deleteFromCart}
+                handleAddProduct={this.handleAddProduct}
+                className="h-full flex flex-col"
+              />
+            </Route>
+            <Route path="/kids">
+              <Kids
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
+            </Route>
+            <Route path="/woman">
+              <Woman
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
+            </Route>
+            <Route path="/man">
+              <Man
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
+            </Route>
+            <Route path="/product">
+              <ProductContainer
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
+            </Route>
+          </Switch>
+        </div>
         <Footer />
       </Router>
     );

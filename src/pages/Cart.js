@@ -32,28 +32,23 @@ class Cart extends React.Component {
 
     if (carT.length === 0) {
       return (
-        <section className="container cart">
-          <header style={{ height: "calc(100vh - 18px)" }}>
-            <h3>Your Bag</h3>
-            <h4 className="empty-cart">is currently empty</h4>
-          </header>
-        </section>
+        <header className="w-full h-[300px] flex flex-col justify-center items-center gap-4">
+          <h3 className="font-semibold text-3xl">Your Cart is empty</h3>
+          <button
+            className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-500/90"
+            onClick={() => {
+              history.push("/product");
+            }}
+          >
+            Back to Shopping
+          </button>
+        </header>
       );
     }
-    const renderCart = carT.map((c) => {
-      console.log(c);
-      return (
-        <CartItem
-          key={c.id}
-          {...c}
-          deleteFromCart={deleteFromCart}
-        />
-      );
-    });
 
     return (
-      <section className="flex flex-col justify-center items-center my-9 gap-4 rounded-md  px-9 w-full h-full">
-        <header className="flex justify-between px-4 py-2 items-center border-[1px] w-[80%] h-[60px] border-gray-900/50 gap-2 rounded-md bg-white">
+      <section className="flex flex-col justify-start items-center gap-4 rounded-md px-9 w-full min-h-screen  my-8">
+        <header className="flex justify-between px-4 py-2 items-center border-[1px] md:w-[80%] w-full h-[60px] border-gray-900/50 gap-2 rounded-md bg-white">
           <div className="flex justify-start  items-center gap-2">
             <CircleCheck className="text-green-400" />
             <h4>{carT[carT.length - 1].title}has been added to your cart.</h4>
@@ -67,24 +62,28 @@ class Cart extends React.Component {
             Continue Shopping
           </button>
         </header>
-        <div className="w-full h-full flex  justify-start items-center gap-2  bg-red-600/30 rounded-md">
-          <article className="w-3/4 px-3 py-2 mt-4">
-            <div className=" bg-white shadow-md rounded-sm p-4 w-[100%] flex justify-between items-center">
-              <div className="">
-                <h5>Product</h5>
-              </div>
-              <div className="">
-                <h5>Price</h5>
-              </div>
-              <div className="">
-                <h5>Total</h5>
-              </div>
+        <div className="flex w-full flex-1 justify-between items-start gap-2 bg-white rounded-md md:flex-row flex-col">
+          <section className="md:w-3/4 w-full h-full px-3 py-2 rounded-sm shadow-md flex flex-col overflow-auto ">
+            <div className="py-3 px-6 w-full flex justify-between items-center border-b-[1px] border-gray-900/30 text-md font-semibold">
+              <h5 className="w-[40%] text-center">Product</h5>
+              <h5>Price</h5>
+              <h5>Quantity</h5>
+              <h5>Total</h5>
             </div>
-            <div className="w-full h-full bg-white ">{renderCart}</div>
-          </article>
+            <div className="w-full h-full ">
+              {carT.map((c) => (
+                <CartItem
+                  key={c.id}
+                  {...c}
+                  deleteFromCart={deleteFromCart}
+                />
+              ))}
+            </div>
+          </section>
 
-          <footer className="w-1/4 h-[100%] flex flex-col justify-center bg-green-500/35 py-5">
-            <div className=" h-full w-full px-3 py-2 mt-4">
+          <section className="md:w-1/4 w-full h-full flex flex-col justify-start gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
+            <h3 className="text-center text-2xl font-semibold"> Summary</h3>
+            <div className=" flex flex-col gap-2 h-full w-full px-7 py-2 mt-4 bg-gray-50/50">
               <section className="flex justify-between items-center">
                 <label>Subtotal</label>
                 <span>{util.formatCurrency(totalPrice)}</span>
@@ -98,7 +97,7 @@ class Cart extends React.Component {
                 <span>{util.formatCurrency(Total)}</span>
               </section>
               <section className="flex justify-between items-center">
-                <label></label>
+                <label>Paypal</label>
                 <span>
                   <PayPal
                     total={newTotal}
@@ -107,20 +106,25 @@ class Cart extends React.Component {
                   />
                 </span>
               </section>
+              <section className="flex justify-between items-center  border-t-[1px] border-gray-900/30 text-md font-semibold py-3">
+                <label>Total</label>
+                <span>{util.formatCurrency(Total)}</span>
+              </section>
             </div>
-            <div className="flex justify-center items-center mt-4 w-full">
-              <button
-                className="btn clear-btn"
-                onClick={() => {
-                  resetProduct();
-                  totalCart();
-                  history.push("/product");
-                }}
-              >
-                Clear Cart
-              </button>
-            </div>
-          </footer>
+            <button
+              className="text-white bg-red-500/80 hover:bg-red-500/90  py-1 rounded-md  mb-4 w-[80%] mx-auto font-semibold  px-7"
+              onClick={() => {
+                resetProduct();
+                totalCart();
+                history.push("/product");
+              }}
+            >
+              Clear Cart
+            </button>
+            <button className="text-white bg-green-500/80 hover:bg-green-500/90  py-1 rounded-md  mb-4 w-[80%] mx-auto font-semibold px-7">
+              Proceed to Checkout
+            </button>
+          </section>
         </div>
       </section>
     );
