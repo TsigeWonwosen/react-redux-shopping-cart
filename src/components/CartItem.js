@@ -21,35 +21,37 @@ const CartItem = ({
   remove,
 }) => {
   const itemRender = () => (
-    <div className="flex w-full justify-between items-center border-b-[1px] border-gray-900/10 py-2 px-4 gap-2">
+    <div className="flex w-full justify-between items-center border-b-[1px] border-gray-900/10 py-2 px-2 md:px-4 gap-1  md:gap-2 overflow-auto">
       <button onClick={() => remove()}>
-        <X className="text-red-500 w-5 h-5" />
+        <X className="text-red-500 w-4 h-4 md:w-5 md:h-5" />
       </button>
       <img
         src={image}
         alt={title}
-        className="h-[30px] w-[40px] md:h-[70px] md:w-[60px]object-cover object-top rounded-md"
+        className="h-[24px] w-[25px] sm:w-[30px] sm:h-[30px] md:h-[80px] md:w-[90px] object-cover object-top rounded-md bg-red-500"
       />
-      <div className="flex justify-start flex-col items-center gap-3 max-w-[250px] p-2  md:max-w-[350px]">
-        <h5 className="text-start w-full font-semibold">{title}</h5>
-        <h6 className=" hidden md:block line-clamp-3 text-sm font-light">
+      <div className="flex justify-start flex-col items-center md:gap-3 w-auto sm:max-w-[250px] p-2  md:max-w-[350px]">
+        <h5 className="text-start w-full font-semibold text-[10px] sm:text-[12px] md:text-[16px]">
+          {title}
+        </h5>
+        <h6 className="line-clamp-3 text-sm font-light max-h-0 overflow-hidden md:max-h-[999px]">
           {description}
         </h6>
       </div>
 
-      <div className="w-[20%]  text-center">
+      <div className="md:w-[20%]  text-center">
         <h6 className="item-price">{util.formatCurrency(price)}</h6>
       </div>
       <div className="md:w-[100px] flex justify-between flex-col md:flex-row items-center md:gap-2 h-full border-[1px] border-green-300/50 rounded-md p-1 md:px-3">
         <button
           onClick={() => increase()}
-          className="bg-white/40 px-[4px] rounded-sm font-semibold text-2xl"
+          className="bg-white/40 px-[4px] rounded-sm font-semibold md:text-2xl text-md"
         >
           +
         </button>
-        <span className="font-bold text-[16px]">{units}</span>
+        <span className="font-bold text-[12] md:text-[16px]">{units}</span>
         <button
-          className="bg-white/40 px-[4px] rounded-sm font-semibold text-2xl"
+          className="bg-white/40 px-[4px] rounded-sm font-semibold md:text-2xl text-md"
           onClick={() => {
             if (units === 1) {
               return remove();
