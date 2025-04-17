@@ -65,9 +65,10 @@ class Cart extends React.Component {
         <div className="flex w-full flex-1 justify-between items-start gap-2 bg-white rounded-md md:flex-row flex-col">
           <section className="md:w-3/4 w-full h-full px-3 py-2 rounded-sm shadow-md flex flex-col overflow-auto ">
             <div className="py-3 px-6 w-full flex justify-between items-center border-b-[1px] border-gray-900/30 text-md font-semibold">
-              <h5 className="w-[40%] text-center">Product</h5>
-              <h5>Price</h5>
-              <h5>Quantity</h5>
+              <span></span>
+              <h5 className="w-[43%] text-center pr-4">Product</h5>
+              <h5 className="w-[100px] text-center">Price</h5>
+              <h5 className="w-[100px]">Quantity</h5>
               <h5>Total</h5>
             </div>
             <div className="w-full h-full ">

@@ -39,11 +39,13 @@ export default function NavBar({ cartLen }) {
             <a href="/kids">Kids</a>
           </li>
           <li>
-            <div className="cartIcon">
+            <div className="cartIcon relative">
               <Link to="/cart">
                 <ShoppingCart />
               </Link>
-              {cartLen > 0 ? <h6 style={cartStyle}>{cartLen}+</h6> : ""}
+              <span className="absolute top-2 -right-3 bg-red-700/80  rounded-full px-[3px] py-[3px]  w-auto flex justify-center items-center">
+                {cartLen > 0 ? <h3>{cartLen}+</h3> : ""}
+              </span>
             </div>
           </li>
         </ul>
@@ -51,24 +53,3 @@ export default function NavBar({ cartLen }) {
     </div>
   );
 }
-
-const cartStyle = {
-  position: "absolute",
-  top: "-5px",
-  right: "-5px",
-  borderRadius: "50%",
-  width: "25px",
-  height: "22px",
-  background: "#e65100",
-  color: "white",
-  fontSize: "0.8rem",
-  display: "flex",
-  justifyContent: "center",
-  letterSpacing: "1px",
-  fontFamily: "sans-serif",
-  fontVariant: "small-caps",
-  fontStyle: "italic",
-  alignItems: "center",
-  fontWeight: "bold",
-  zIndex: "100",
-};
