@@ -1,0 +1,64 @@
+import { ChevronRight } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+
+export default function Breadcrumb() {
+  const location = useLocation();
+
+  // Split the current path and filter out empty strings
+  const pathnames = location.pathname.split("/").filter((x) => x);
+
+  return (
+    <section className="text-sm text-gray-500 flex justify-start items-center w-auto mb-2">
+      <ol className="list-none p-0 inline-flex flex-wrap items-center space-x-1">
+        <li className="flex ml-9">
+          <Link
+            to="/"
+            className="hover:text-gray-800 transition"
+          >
+            Home
+          </Link>
+          {pathnames.length > 0 && (
+            <span className="mx-2 text-gray-400">
+              <ChevronRight size={"11px"} />
+            </span>
+          )}
+        </li>
+
+        {pathnames.map((value, index) => {
+          // Build the full path to this breadcrumb level
+          const to = `/${pathnames.slice(0, index + 1).join("/")}`;
+
+          // Convert slug-style text to readable text
+          const label = decodeURIComponent(value)
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (c) => c.toUpperCase());
+
+          const isLast = index === pathnames.length - 1;
+
+          return (
+            <li
+              key={to}
+              className="inline-flex items-center"
+            >
+              {!isLast ? (
+                <>
+                  <Link
+                    to={to}
+                    className="hover:text-gray-800 transition"
+                  >
+                    {label}
+                  </Link>
+                  <span className="mx-2 text-gray-400">
+                    <ChevronRight size={"14px"} />
+                  </span>
+                </>
+              ) : (
+                <span className="text-gray-800">{label}</span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  );
+}

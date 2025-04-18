@@ -1,6 +1,7 @@
 import React from "react";
 import util from "../utility/util";
 import "../styles/card.scss";
+import { useHistory } from "react-router-dom";
 
 export default function Product({
   id,
@@ -12,9 +13,17 @@ export default function Product({
   InCart,
   handleInCart,
 }) {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push(`/product/${id}`);
+  };
   return (
     <div className="product-card">
-      <div className="overflow-hidden w-full rounded-md  aspect-[3/2] min-h-[180px] ">
+      <div
+        className="overflow-hidden w-full rounded-md  aspect-[3/2] min-h-[180px] cursor-pointer "
+        onClick={handleClick}
+      >
         <img
           src={image}
           alt={title}

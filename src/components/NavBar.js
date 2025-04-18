@@ -26,7 +26,10 @@ export default function NavBar({ cartLen }) {
       </button>
       <ul className="hidden md:flex justify-center items-center  gap-3 text-[15px] mr-4">
         {NavLinks.map((navs) => (
-          <li className=" text-gray-600 hover:text-gray-900 transition-all duration-300">
+          <li
+            key={navs.titel}
+            className=" text-gray-600 hover:text-gray-900 transition-all duration-300"
+          >
             <Link to={navs.url}>{navs.titel}</Link>
           </li>
         ))}
@@ -48,6 +51,7 @@ export default function NavBar({ cartLen }) {
         <ul className=" absolute top-[63px] right-2 flex md:hidden justify-center flex-col z-10 items-center  gap-3 text-[15px] bg-white w-1/2 h-auto py-8 rounded-b-md shadow-lg">
           {NavLinks.map((navs) => (
             <li
+              key={navs.titel}
               className="w-[60%] my-auto text-gray-600 hover:text-gray-900 transition-all duration-300 border-b-[1px] border-gray-100 py-1 flex justify-center items-center"
               onClick={() => toggleTrueFalse()}
             >

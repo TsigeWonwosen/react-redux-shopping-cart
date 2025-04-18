@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import ProductContainer from "./components/ProductContainer";
 import Home from "./components/Home";
 import fetchProductNew from "./utility/fetchProducts";
+import SingleProduct from "./components/SingleProduct";
 import {
   addToCart,
   deleteFromCart,
@@ -77,8 +78,18 @@ class App extends React.Component {
                 product={this.props.product}
               />
             </Route>
-            <Route path="/product">
+            <Route
+              exact
+              path="/product"
+            >
               <ProductContainer
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
+            </Route>
+            <Route path="/product/:id">
+              <SingleProduct
                 handleAddProduct={this.handleAddProduct}
                 handleInCart={this.props.handleInCart}
                 product={this.props.product}
