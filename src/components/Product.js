@@ -14,11 +14,6 @@ export default function Product({
 }) {
   return (
     <div className="product-card">
-      {/* <img
-        className="activator"
-        src={image}
-        alt={title}
-      /> */}
       <div className="overflow-hidden w-full rounded-md  aspect-[3/2] min-h-[180px] ">
         <img
           src={image}

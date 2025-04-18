@@ -10,20 +10,21 @@ class Filter extends Component {
     const count = this.props.Product.length;
     let currentValue = this.props.sort || "DEFAULT";
     return (
-      <div className="row center m5">
-        <div className="col s12 m4 center">
-          <label>
-            <span>{count} Products Found</span>
+      <div className="bg-white flex h-[100px] justify-center items-start rounded-md  mt-6 gap-4 p-4 w-[90%] md:w-[60%] mx-auto shadow-md">
+        <div className="flex justify-center items-center gap-3 h-full ">
+          <label className="block text-sm font-medium text-gray-700">
+            Products Found
           </label>
+          <span className="text-md font-semibold">{count}</span>
         </div>
-        <div className="col s12 m4 center">
-          <label>
-            <span>Order By Price</span>
+        <div className="flex justify-center items-center gap-3 h-full">
+          <label className="block text-sm font-medium text-gray-700">
+            Order By Price
           </label>
-          <div className="input-field">
+          <div className="relative">
             <select
               value={currentValue}
-              className="form-control browser-default"
+              className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-1 px-4 pr-8 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               onChange={(e) =>
                 this.props.sortProductByPrice(
                   this.props.Product,
@@ -42,13 +43,13 @@ class Filter extends Component {
             </select>
           </div>
         </div>
-        <div className="col  s12 m4 ">
-          <label>
+        <div className="flex justify-center items-center gap-3 h-full">
+          <label className="block text-sm font-medium text-gray-700">
             <span>Filter By Id</span>
           </label>
-          <div className="input-field">
+          <div className="relative">
             <select
-              className="form-control browser-default"
+              className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-1 px-4 pr-8 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               value={this.props.id}
               onChange={(e) =>
                 this.props.handleFilter(this.props.Product, e.target.value)

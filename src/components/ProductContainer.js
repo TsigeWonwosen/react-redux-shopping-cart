@@ -10,15 +10,7 @@ export default function ProductContainer({
   return (
     <div className="App container">
       <Filter />
-      <hr
-        style={{
-          width: "80%",
-          fontSize: "40",
-          margin: "auto",
-          marginBottom: "1rem",
-          border: " 1px solid rgba(22, 22, 23, 0.21)",
-        }}
-      />
+
       <section className="cardContainer">
         {product.map((prod) => {
           return (
