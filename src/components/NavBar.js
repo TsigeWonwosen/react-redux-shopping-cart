@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, X } from "lucide-react";
+import { Menu, ShoppingCart, X } from "lucide-react";
 import "../styles/NavBar.scss";
 
 export default function NavBar({ cartLen }) {
@@ -9,12 +9,12 @@ export default function NavBar({ cartLen }) {
   return (
     <div className="navBar">
       <button
-        className="checkbtn"
+        className="checkbtn w-7 h-7"
         onClick={() => {
           toggleTrueFalse();
         }}
       >
-        {!navOpen && <i className="material-icons Large">dehaze</i>}
+        {!navOpen && <Menu />}
         {navOpen && <X />}
       </button>
 
@@ -30,22 +30,27 @@ export default function NavBar({ cartLen }) {
             <Link to="/product">Product</Link>
           </li>
           <li>
-            <a href="/man">Men</a>
+            <Link to="/man">Men</Link>
           </li>
           <li>
-            <a href="/woman">Women</a>
+            <Link to="/woman">Women</Link>
           </li>
           <li>
-            <a href="/kids">Kids</a>
+            <Link to="/kids">Kids</Link>
           </li>
-          <li>
-            <div className="cartIcon relative">
-              <Link to="/cart">
+          <li className="w-7 h-7 ">
+            <div className=" relative w-auto h-full  flex justify-center items-center">
+              <Link
+                to="/cart"
+                className="w-full h-full"
+              >
                 <ShoppingCart />
               </Link>
-              <span className="absolute top-2 -right-3 bg-red-700/80  rounded-full px-[3px] py-[3px]  w-auto flex justify-center items-center">
-                {cartLen > 0 ? <h3>{cartLen}+</h3> : ""}
-              </span>
+              {cartLen > 0 && (
+                <span className="absolute top-2 -right-3 bg-red-700/80  rounded-full px-[4px] py-[2px]  w-7 h-7 flex justify-center items-center">
+                  <h3 className="text-white">{cartLen}+</h3>
+                </span>
+              )}
             </div>
           </li>
         </ul>

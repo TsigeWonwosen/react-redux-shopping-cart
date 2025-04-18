@@ -21,20 +21,23 @@ const CartItem = ({
   remove,
 }) => {
   const itemRender = () => (
-    <div className="flex w-full justify-between items-center border-b-[1px] border-gray-900/10 py-2 px-2 md:px-4 gap-1  md:gap-2 overflow-auto">
+    <div className="flex w-full h-ful justify-between items-center border-b-[1px] border-gray-900/10 py-2 px-2 md:px-4 gap-1  md:gap-2 ">
       <button onClick={() => remove()}>
         <X className="text-red-500 w-4 h-4 md:w-5 md:h-5" />
       </button>
-      <img
-        src={image}
-        alt={title}
-        className="h-[24px] w-[25px] sm:w-[30px] sm:h-[30px] md:h-[80px] md:w-[90px] object-cover object-top rounded-md bg-red-500"
-      />
-      <div className="flex justify-start flex-col items-center md:gap-3 w-auto sm:max-w-[250px] p-2  md:max-w-[350px]">
+
+      <div className="overflow-hidden w-full rounded-md  aspect-[3/2] max-w-[70px]">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover object-top"
+        />
+      </div>
+      <div className="flex justify-start flex-col flex-grow items-center md:gap-3 w-auto sm:max-w-[250px] p-2  md:max-w-[350px]">
         <h5 className="text-start w-full font-semibold text-[10px] sm:text-[12px] md:text-[16px]">
           {title}
         </h5>
-        <h6 className="line-clamp-3 text-sm font-light max-h-0 overflow-hidden md:max-h-[999px]">
+        <h6 className="text-gray-600 text-sm hidden md:line-clamp-3 mb-4 md:max-h-[999px]">
           {description}
         </h6>
       </div>
