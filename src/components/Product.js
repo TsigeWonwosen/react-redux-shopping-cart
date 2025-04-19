@@ -33,27 +33,27 @@ export default function Product({
       <div className="cardContent">
         <h6> {title}</h6>
         <span className="card-price">
-          <h5>Price </h5>
+          <h4>Price </h4>
           <h5>{util.formatCurrency(price)}</h5>
         </span>
+        <button
+          disabled={InCart}
+          className="btnAdd"
+          onClick={() => {
+            handleAddProduct({
+              id,
+              title,
+              description,
+              image,
+              price,
+              units: 1,
+            });
+            handleInCart(id);
+          }}
+        >
+          {!InCart ? "Add To Cart" : "In Cart"}
+        </button>
       </div>
-      <button
-        disabled={InCart}
-        className="btnAdd"
-        onClick={() => {
-          handleAddProduct({
-            id,
-            title,
-            description,
-            image,
-            price,
-            units: 1,
-          });
-          handleInCart(id);
-        }}
-      >
-        {!InCart ? "Add To Cart" : "In Cart"}
-      </button>
     </div>
   );
 }

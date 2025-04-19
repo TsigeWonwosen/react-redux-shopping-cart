@@ -115,7 +115,7 @@ class Cart extends React.Component {
               </section>
             </div>
             <button
-              className="text-white bg-red-500/80 hover:bg-red-500/90  py-1 rounded-md  mb-4 w-[80%] mx-auto font-semibold  px-7"
+              className="text-white bg-red-500/80 hover:bg-red-500/90  py-3 rounded-md  mb-2 w-[80%] mx-auto font-semibold  px-6 "
               onClick={() => {
                 resetProduct();
                 totalCart();
@@ -124,7 +124,7 @@ class Cart extends React.Component {
             >
               Clear Cart
             </button>
-            <button className="text-white bg-green-500/80 hover:bg-green-500/90  py-1 rounded-md  mb-4 w-[80%] mx-auto font-semibold px-7">
+            <button className="text-white bg-green-500/80 hover:bg-green-500/90  py-3 rounded-md  mb-4 w-[80%] mx-auto font-semibold px-6">
               Proceed to Checkout
             </button>
           </section>

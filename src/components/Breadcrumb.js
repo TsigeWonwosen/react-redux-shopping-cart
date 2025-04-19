@@ -8,9 +8,9 @@ export default function Breadcrumb() {
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <section className="text-sm text-gray-500 flex justify-start items-center w-auto mb-2">
+    <section className="text-sm text-gray-500 flex justify-start items-center mb-2 w-full">
       <ol className="list-none p-0 inline-flex flex-wrap items-center space-x-1">
-        <li className="flex ml-9">
+        <li className="flex justify-center items-center ml-9">
           <Link
             to="/"
             className="hover:text-gray-800 transition"
@@ -19,7 +19,7 @@ export default function Breadcrumb() {
           </Link>
           {pathnames.length > 0 && (
             <span className="mx-2 text-gray-400">
-              <ChevronRight size={"11px"} />
+              <ChevronRight size={"14px"} />
             </span>
           )}
         </li>

@@ -12,7 +12,10 @@ export default function NavBar({ cartLen }) {
           to="/"
           className="w-auto h-full flex justify-center items-center font-semibold text-lg"
         >
-          The Ethiopian.
+          The Ethiopian
+          <span className="text-[25px] text-green-800/80 text-center h-4 w-2 mb-2 flex  justify-center items-center">
+            .
+          </span>
         </Link>
       </div>
       <button

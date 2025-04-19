@@ -21,3 +21,7 @@
   font-family: Poppins, "trebuchet ms";
   margin: 0px auto;
 }
+
+button:focus {
+  background: transparent;
+}
