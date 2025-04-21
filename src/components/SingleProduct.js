@@ -3,6 +3,7 @@ import productDatas from "../data/Data.json";
 import Breadcrumb from "./Breadcrumb";
 import { Eye, Star } from "lucide-react";
 import Product from "./Product";
+import ReviewBreakdown from "./ReviewBreakdown";
 
 export default function SingleProduct({ handleAddProduct, handleInCart }) {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export default function SingleProduct({ handleAddProduct, handleInCart }) {
       <Breadcrumb />
       <div className="max-w-5xl w-full bg-white shadow-lg rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 p-6 mb-12">
         {/* Image Section */}
-        <div className="w-full h-96 bg-gray-100 flex items-center justify-center rounded-xl overflow-hidden">
+        <div className="w-full h-96 max-w-md bg-gray-100 flex items-center justify-center rounded-xl overflow-hidden">
           <img
             src={product.image}
             alt={product.title}
@@ -23,7 +24,7 @@ export default function SingleProduct({ handleAddProduct, handleInCart }) {
         </div>
 
         {/* Info Section */}
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between max-w-md md:w-full">
           <div>
             <h1 className="text-3xl font-semibold text-gray-800 mb-4">
               {product.title}
@@ -36,7 +37,7 @@ export default function SingleProduct({ handleAddProduct, handleInCart }) {
             <p className="text-gray-600 text-lg mb-6 ">{product.description}</p>
           </div>
           <div className="mt-auto">
-            <div className="text-2xl font-semibold text-green-600 mb-4">
+            <div className="text-2xl font-semibold text-green-400 mb-4">
               ${product.price}
             </div>
             <button
@@ -44,7 +45,7 @@ export default function SingleProduct({ handleAddProduct, handleInCart }) {
                 handleAddProduct({ ...product });
                 // handleInCart(id);
               }}
-              className="w-full py-3 px-6 bg-green-600 text-white rounded-xl text-lg font-medium hover:bg-green-700 transition duration-200 shadow"
+              className="w-full py-3 px-6 bg-green-500 text-white rounded-xl text-lg font-medium hover:bg-green-700 transition duration-200 shadow"
             >
               Add to Cart
             </button>
@@ -55,7 +56,7 @@ export default function SingleProduct({ handleAddProduct, handleInCart }) {
         <h1 className="text-2xl font-semibold text-gray-800 mb-6">
           Related Products
         </h1>
-        <section className="flex flex-wrap justify-center px-3   gap-1 ">
+        <section className="flex flex-wrap justify-center  gap-1 max-w-md md:max-w-full mx-auto">
           {productDatas
             .filter((item) =>
               item.category.toLowerCase().includes(product.category)
@@ -70,11 +71,12 @@ export default function SingleProduct({ handleAddProduct, handleInCart }) {
         <h1 className="text-2xl font-semibold text-gray-800 mb-6">
           Reviews(0)
         </h1>
-        <span className="flex justify-start items-center gap-2">
+        <span className="flex justify-start items-center gap-2 mb-6">
           <Star className="text-green-500" />
 
           <h1 className="font-semibold text-lg">User Reviews</h1>
         </span>
+        <ReviewBreakdown />
         <span className="font-medium py-4">
           Be the first to review “{product.title}”
         </span>
