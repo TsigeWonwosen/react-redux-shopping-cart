@@ -35,13 +35,13 @@ export default function Product({
       <div className="cardContent">
         <h6 className="text-left"> {title}</h6>
         <span className="flex justify-start w-full items-center gap-2">
-          {rating.rate}
+          {rating?.rate}
           <div className="flex justify-start w-full items-cente gap-1">
             {[...Array(5)].map((_, index) => (
               <Star
                 key={index}
                 className={`w-4 h-4 ${
-                  index < rating.rate
+                  index < rating?.rate
                     ? "text-green-500 fill-green-500"
                     : "text-gray-300"
                 }`}
@@ -49,7 +49,7 @@ export default function Product({
             ))}
           </div>
           <span className="text-[12px] font-normal text-blue-500">
-            ({rating.count})
+            ({rating?.count})
           </span>
         </span>
         <span className="card-price">

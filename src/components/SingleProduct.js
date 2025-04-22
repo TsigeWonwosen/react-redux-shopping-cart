@@ -12,7 +12,6 @@ export default function SingleProduct({
   const { id } = useParams();
   let filteredItems = product.filter((prod) => prod.id === parseInt(id));
   const filteredProduct = filteredItems[0];
-  console.log(filteredProduct);
 
   return (
     <div className="min-h-screen  w-full mx-auto flex flex-col items-center justify-start bg-gray-50 px-4 py-10 mt-9 mb-6">
@@ -70,11 +69,14 @@ export default function SingleProduct({
         <section className="flex flex-wrap justify-center w-full  gap-2 max-w-2xl md:max-w-full mx-auto p-4 overflow-x-auto ">
           {product
             .filter((item) =>
-              item.category.toLowerCase().includes(product.category)
+              item.category.toLowerCase().includes(filteredProduct.category)
             )
             .slice(0, 6)
             .map((res) => (
-              <Product {...res} />
+              <Product
+                {...res}
+                key={res.id}
+              />
             ))}
         </section>
       </section>

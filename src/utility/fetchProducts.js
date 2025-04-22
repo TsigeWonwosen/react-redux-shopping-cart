@@ -3,6 +3,11 @@ import {
   fetchProductsSuccess,
   fetchProductsError,
 } from "../redux/action/cartAction";
+
+import PRODUCTS from "./../data/Data.json";
+console.log(PRODUCTS);
+//https://fakestoreapi.com/products
+
 function fetchProducts() {
   return (dispatch) => {
     dispatch(fetchProductsPending());
@@ -12,7 +17,7 @@ function fetchProducts() {
         if (res.error) {
           throw res.error;
         }
-        dispatch(fetchProductsSuccess(res));
+        dispatch(fetchProductsSuccess(PRODUCTS));
         return res;
       })
       .catch((error) => {
