@@ -101,13 +101,6 @@ class Cart extends React.Component {
               </section>
               <section className="flex justify-between items-center">
                 <label>Paypal</label>
-                <span>
-                  <PayPal
-                    total={newTotal}
-                    clearFromCart={clearFromCart}
-                    history={history}
-                  />
-                </span>
               </section>
               <section className="flex justify-between items-center  border-t-[1px] border-gray-900/30 text-md font-semibold py-3">
                 <label>Total</label>
@@ -127,6 +120,11 @@ class Cart extends React.Component {
             <button className="text-white bg-green-500/80 hover:bg-green-500/90  py-3 rounded-md  mb-4 w-[80%] mx-auto font-semibold px-6">
               Proceed to Checkout
             </button>
+            <PayPal
+              total={newTotal}
+              clearFromCart={clearFromCart}
+              history={history}
+            />
           </section>
         </div>
       </section>

@@ -5,7 +5,6 @@ import {
 } from "../redux/action/cartAction";
 
 import PRODUCTS from "./../data/Data.json";
-console.log(PRODUCTS);
 //https://fakestoreapi.com/products
 
 function fetchProducts() {
