@@ -7,6 +7,7 @@ export default function ProductContainer({
   deleteFromCart,
   handleInCart,
 }) {
+  console.log(product[0]);
   return (
     <div className="App container">
       <Filter />

@@ -44,7 +44,11 @@ class App extends React.Component {
               exact
               path="/"
             >
-              <Home />
+              <Home
+                handleAddProduct={this.handleAddProduct}
+                handleInCart={this.props.handleInCart}
+                product={this.props.product}
+              />
               {/* <VideoBackground /> */}
             </Route>
             <Route

@@ -1,9 +1,10 @@
 import "../styles/Home.scss";
 import ProductCard from "../components/Product";
-import categories from "../data/Data.json";
-import featuredProducts from "../data/Data.json";
+// import categories from "../data/Data.json";
+// import featuredProducts from "../data/Data.json";
 import Catagory from "./Category";
-const Home = () => {
+// import { handleCart } from "../redux/action/cartAction";
+const Home = ({ handleAddProduct, handleInCart, product }) => {
   return (
     <>
       <div className="home">
@@ -20,10 +21,12 @@ const Home = () => {
         <section className="hero-categories">
           <h2 className="section-title">Shop by Category</h2>
           <div className="hero-grid">
-            {categories.slice(0, 6).map((cat) => (
+            {product.slice(0, 6).map((cat) => (
               <ProductCard
                 key={cat.id}
                 {...cat}
+                handleAddProduct={handleAddProduct}
+                handleInCart={handleInCart}
               />
             ))}
           </div>
@@ -33,10 +36,12 @@ const Home = () => {
           <p>Looking for Best products</p>
           <h2 className="section-title">Choose of Best category</h2>
           <div className="best-grid">
-            {categories.slice(6, 12).map((cat) => (
+            {product.slice(6, 12).map((cat) => (
               <Catagory
                 key={cat.id}
                 {...cat}
+                handleAddProduct={handleAddProduct}
+                handleInCart={handleInCart}
               />
             ))}
           </div>
@@ -45,10 +50,12 @@ const Home = () => {
         <section className="hero-featured">
           <h2 className="section-title">Featured Products</h2>
           <div className="product-grid">
-            {featuredProducts.slice(14, 20).map((product) => (
+            {product.slice(14, 20).map((product) => (
               <ProductCard
                 key={product.id}
                 {...product}
+                handleAddProduct={handleAddProduct}
+                handleInCart={handleInCart}
               />
             ))}
           </div>

@@ -2,6 +2,7 @@ import React from "react";
 import util from "../utility/util";
 import "../styles/card.scss";
 import { useHistory } from "react-router-dom";
+import { Star } from "lucide-react";
 
 export default function Product({
   id,
@@ -9,6 +10,7 @@ export default function Product({
   image,
   price,
   title,
+  rating,
   handleAddProduct,
   InCart,
   handleInCart,
@@ -31,7 +33,25 @@ export default function Product({
         />
       </div>
       <div className="cardContent">
-        <h6> {title}</h6>
+        <h6 className="text-left"> {title}</h6>
+        <span className="flex justify-start w-full items-center gap-2">
+          {rating.rate}
+          <div className="flex justify-start w-full items-cente gap-1">
+            {[...Array(5)].map((_, index) => (
+              <Star
+                key={index}
+                className={`w-4 h-4 ${
+                  index < rating.rate
+                    ? "text-green-500 fill-green-500"
+                    : "text-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-[12px] font-normal text-blue-500">
+            ({rating.count})
+          </span>
+        </span>
         <span className="card-price">
           <h4>Price </h4>
           <h5>{util.formatCurrency(price)}</h5>
