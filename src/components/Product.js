@@ -65,7 +65,7 @@ export default function Product({
           >
             <p className="text-[13px]">
               {" "}
-              {!InCart ? "Add To Cart" : "In Cart"}
+              {!InCart ? "Add to Cart" : "In Cart"}
             </p>
           </button>
         </span>

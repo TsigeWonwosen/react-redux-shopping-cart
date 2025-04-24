@@ -16,16 +16,25 @@ export default function SingleProduct({
   const filteredProduct = filteredItems[0];
 
   return (
-    <div className="min-h-screen max-w-screen-xl mx-auto w-full  flex flex-col items-center justify-start bg-gray-50 px-4 py-10 mt-9 mb-6">
+    <div className="min-h-screen max-w-screen-xl mx-auto w-full  flex flex-col items-center justify-start bg-white px-4 py-10 mt-9 mb-6">
       <Breadcrumb />
-      <div className="container w-full bg-white shadow-lg rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 p-6 mb-12">
+      <div className="container w-full  rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10  p-6 mb-12">
         {/* Image Section */}
-        <div className="max-w-2xl w-full h-96  bg-white flex items-center justify-center rounded-xl overflow-hidden p-4">
-          <img
-            src={filteredProduct.image}
-            alt={filteredProduct.title}
-            className="object-cover w-full h-full object-top"
-          />
+        <div className="flex flex-col justify-center items-center w-full h-96 max-w-[500px] ">
+          <div className="w-full h-95 max-w-[500px] gap-2 flex flex-col items-center justify-center overflow-hidden p-4 bg-gray-10 border-b-[1px] border-gray-200 mb-4 ">
+            <img
+              src={filteredProduct.image}
+              alt={filteredProduct.title}
+              className="object-cover w-auto h-full object-top "
+            />
+          </div>
+          <div className=" flex justify-start h-[90px]  w-full px-4">
+            <img
+              src={filteredProduct.image}
+              alt={filteredProduct.title}
+              className="object-cover w-auto h-[60px] object-top"
+            />
+          </div>
         </div>
 
         {/* Info Section */}
@@ -49,13 +58,39 @@ export default function SingleProduct({
                 11 {filteredProduct.category}
               </span>
             </div>
-            <p className="text-gray-600 text-lg mb-6 ">
+            <p className="text-gray-600/90 text-md mb-4 ">
               {filteredProduct.description}
             </p>
           </div>
           <div className="mt-auto">
-            <div className="text-2xl font-semibold text-gray-600 mb-4">
-              ${filteredProduct.price}
+            <div className="text-2xl font-semibold text-gray-600 mb-4 border-b-[1px] border-gray-200">
+              <h5 className="text-2xl font-semibold text-gray-600 mb-4">
+                ${filteredProduct.price}
+              </h5>
+            </div>
+            <div className="flex flex-col justify-start items-start mb-6  gap-[5px]">
+              <span className="flex justify-start items-center gap-3">
+                <label className="font-semibold text-sm text-gray-700 min-w-[90px]">
+                  Brand
+                </label>
+                <p className="text-sm font-extralight text-gray-500">Generic</p>
+              </span>
+              <span className="flex justify-start items-center gap-3">
+                <label className="font-semibold text-sm text-gray-700 min-w-[90px]">
+                  {" "}
+                  Color
+                </label>
+                <p className="text-sm font-extralight text-gray-500">Multi</p>
+              </span>
+              <span className="flex justify-start items-center gap-3">
+                <label className="font-semibold text-sm text-gray-700 min-w-[90px] ">
+                  {" "}
+                  Catagory
+                </label>
+                <p className="text-sm font-extralight text-gray-500">
+                  {filteredProduct.category}
+                </p>
+              </span>
             </div>
             <div className="flex justify-center items-center gap-2">
               <button className="w-full bg-gray-200 px-4 py-2 rounded-sm text-gray-800 transition duration-200 shadow hover:text-white  hover:bg-gray-400">
@@ -79,17 +114,17 @@ export default function SingleProduct({
           </div>
         </div>
       </div>
-      <section className=" my-8  flex flex-col justify-start items-start w-full mb-12 px-4">
+      <section className=" my-8  flex flex-col justify-start items-center w-full mb-12 px-4">
         <Header
           title="Related Products"
-          posssition="left"
+          posssition="center"
         />
         <section className="flex flex-wrap justify-center w-full  gap-2 max-w-2xl md:max-w-full mx-auto p-4 overflow-x-auto ">
           {product
             .filter((item) =>
               item.category.toLowerCase().includes(filteredProduct.category)
             )
-            .slice(0, 6)
+            .slice(0, 5)
             .map((res) => (
               <Product
                 {...res}
@@ -98,15 +133,15 @@ export default function SingleProduct({
             ))}
         </section>
       </section>
-      <section className=" my-8  flex flex-col justify-start items-start w-full mb-12  px-4">
+      <section className=" my-8  flex flex-col justify-start items-center w-full mb-12  px-4">
         <Header
           title="Reviews(0)"
-          posssition="left"
+          posssition="center"
         />
-        <span className="flex justify-start items-center gap-2 mb-6 px-4">
-          <Star className="text-green-500" />
+        <span className="flex justify-start items-start w-full max-w-[800px] gap-2 mb-6 px-4">
+          <Star className="text-green-500 fill-green-500" />
 
-          <h1 className="font-semibold text-lg">User Reviews</h1>
+          <h1 className="font-semibold text-lg text-left ">User Reviews</h1>
         </span>
         <ReviewBreakdown />
         <span className="font-medium p-4">

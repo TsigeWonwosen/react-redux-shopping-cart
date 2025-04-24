@@ -4,25 +4,20 @@ import ProductCard from "../components/Product";
 // import featuredProducts from "../data/Data.json";
 import Catagory from "./Category";
 import Header from "./Header";
+import HeroCarousel from "./Carousel";
 // import { handleCart } from "../redux/action/cartAction";
 const Home = ({ handleAddProduct, handleInCart, product }) => {
   return (
     <>
-      <div className="home max-w-screen-xl mx-auto">
+      <div className="home flex flex-col justify-start items-start w-full max-w-screen-xl mx-auto mt-6">
         {/* Hero */}
-        <section className="hero">
-          <div className="hero__content">
-            <h1>Welcome to The Ethiopian</h1>
-            <p>Fashion for men, women, kids, and top-notch electronics.</p>
-            <button className="hero__btn">Explore Now</button>
-          </div>
-        </section>
+        <HeroCarousel />
 
         {/* Categories */}
-        <section className="hero-categories">
+        <section className="hero-categories w-full">
           <Header title="Popular products" />
           <div className="hero-grid">
-            {product.slice(0, 6).map((cat) => (
+            {product.slice(0, 5).map((cat) => (
               <ProductCard
                 key={cat.id}
                 {...cat}
@@ -51,7 +46,7 @@ const Home = ({ handleAddProduct, handleInCart, product }) => {
         <section className="hero-featured">
           <Header title="Featured Products" />
           <div className="product-grid">
-            {product.slice(14, 20).map((product) => (
+            {product.slice(14, 19).map((product) => (
               <ProductCard
                 key={product.id}
                 {...product}

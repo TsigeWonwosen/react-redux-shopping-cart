@@ -37,7 +37,7 @@ class App extends React.Component {
 
     return (
       <Router>
-        <div className="min-h-screen flex flex-col ">
+        <div className="min-h-screen flex flex-col bg-white/80">
           <NavBar cartLen={cartLen} />
 
           <Switch>
