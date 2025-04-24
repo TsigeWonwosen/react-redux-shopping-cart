@@ -6,7 +6,7 @@ function Man({ product, handleAddProduct, deleteFromCart, handleInCart }) {
     prod.category.toLowerCase().includes("men")
   );
   return (
-    <div className="container">
+    <div className="container max-w-screen-xl mx-auto">
       <section className="container cardContainer">
         {filteredItems.length === 0 && (
           <div className="loading">

@@ -9,6 +9,7 @@ import Woman from "./pages/Woman";
 import Footer from "./components/Footer";
 import ProductContainer from "./components/ProductContainer";
 import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 import fetchProductNew from "./utility/fetchProducts";
 import SingleProduct from "./components/SingleProduct";
 import {
@@ -36,7 +37,7 @@ class App extends React.Component {
 
     return (
       <Router>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col ">
           <NavBar cartLen={cartLen} />
 
           <Switch>
@@ -99,6 +100,7 @@ class App extends React.Component {
                 product={this.props.product}
               />
             </Route>
+            <Route component={NotFound} /> {/* 404 fallback */}
           </Switch>
         </div>
         <Footer />

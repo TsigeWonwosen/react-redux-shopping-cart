@@ -13,7 +13,7 @@ export default function Woman({
       prod.category.toLowerCase().includes("jewelry")
   );
   return (
-    <div className="App container">
+    <div className="App container max-w-screen-xl mx-auto">
       <section className="container cardContainer">
         {filteredItems.length === 0 && (
           <div className="loading">

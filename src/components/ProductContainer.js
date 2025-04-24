@@ -1,17 +1,18 @@
 import React from "react";
 import Product from "./Product";
 import Filter from "./Filter";
+import Header from "./Header";
 export default function ProductContainer({
   product,
   handleAddProduct,
   deleteFromCart,
   handleInCart,
 }) {
-  console.log(product[0]);
   return (
     <div className="App container">
       <Filter />
 
+      <Header title="All products" />
       <section className="cardContainer">
         {product.map((prod) => {
           return (

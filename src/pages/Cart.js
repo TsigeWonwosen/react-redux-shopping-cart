@@ -32,7 +32,7 @@ class Cart extends React.Component {
 
     if (carT.length === 0) {
       return (
-        <header className="w-full h-[300px] flex flex-col justify-center items-center gap-4">
+        <header className="max-w-3xl mx-auto  w-full h-[300px] flex flex-col justify-center items-center gap-4">
           <h3 className="font-semibold text-3xl">Your Cart is empty</h3>
           <button
             className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-500/90"
@@ -47,14 +47,14 @@ class Cart extends React.Component {
     }
 
     return (
-      <section className="flex flex-col justify-start items-center gap-4 rounded-md px-9 w-full min-h-screen  my-8">
-        <header className="flex justify-between px-4 py-2 items-center border-[1px] md:w-[80%] w-full h-[60px] border-gray-900/50 gap-2 rounded-md bg-white">
+      <section className="flex flex-col justify-start items-center gap-4 rounded-md px-9 w-full min-h-screen  my-8 max-w-screen-xl mx-auto">
+        <header className="flex justify-between px-4 py-2 items-center border-[1px] md:w-[80%] w-full min-h-[60px] border-gray-900/50 gap-2 rounded-md bg-white">
           <div className="flex justify-start  items-center gap-2">
             <CircleCheck className="text-green-400" />
             <h4>{carT[carT.length - 1].title}has been added to your cart.</h4>
           </div>
           <button
-            className="btn"
+            className="bg-green-700/80 rounded-md px-3 py-2 text-white text-sm"
             onClick={() => {
               history.push("/product");
             }}
@@ -95,20 +95,27 @@ class Cart extends React.Component {
                 <label>Tax</label>
                 <span>{util.formatCurrency(Tax)}</span>
               </section>
-              <section className="flex justify-between items-center">
-                <label>Total</label>
-                <span>{util.formatCurrency(Total)}</span>
-              </section>
-              <section className="flex justify-between items-center">
-                <label>Paypal</label>
-              </section>
-              <section className="flex justify-between items-center  border-t-[1px] border-gray-900/30 text-md font-semibold py-3">
-                <label>Total</label>
-                <span>{util.formatCurrency(Total)}</span>
+
+              <section className="flex justify-between items-center  border-t-[1px] border-gray-900/30  py-3">
+                <label className="text-lg font-semibold">Total</label>
+                <span className="text-lg font-semibold">
+                  {util.formatCurrency(Total)}
+                </span>
               </section>
             </div>
+            <PayPal
+              total={newTotal}
+              clearFromCart={clearFromCart}
+              history={history}
+            />
             <button
-              className="text-white bg-red-500/80 hover:bg-red-500/90  py-3 rounded-md  mb-2 w-[80%] mx-auto font-semibold  px-6 "
+              className="text-white text-lg bg-green-500/80 hover:bg-green-500/90  py-2 rounded-[6px]  mb-1 w-full mx-auto font-semibold px-6"
+              onClick={() => history.push("/product")}
+            >
+              Back to basket
+            </button>
+            <button
+              className="text-white bg-red-500/80 text-lg hover:bg-red-500/90  py-2 rounded-[6px]  w-full mb-2 mx-auto font-semibold  px-6 "
               onClick={() => {
                 resetProduct();
                 totalCart();
@@ -117,14 +124,6 @@ class Cart extends React.Component {
             >
               Clear Cart
             </button>
-            <button className="text-white bg-green-500/80 hover:bg-green-500/90  py-3 rounded-md  mb-4 w-[80%] mx-auto font-semibold px-6">
-              Proceed to Checkout
-            </button>
-            <PayPal
-              total={newTotal}
-              clearFromCart={clearFromCart}
-              history={history}
-            />
           </section>
         </div>
       </section>

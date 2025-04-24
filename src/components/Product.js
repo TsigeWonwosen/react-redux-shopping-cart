@@ -2,7 +2,7 @@ import React from "react";
 import util from "../utility/util";
 import "../styles/card.scss";
 import { useHistory } from "react-router-dom";
-import { Star } from "lucide-react";
+import Rating from "./Rating";
 
 export default function Product({
   id,
@@ -23,56 +23,52 @@ export default function Product({
   return (
     <div className="product-card">
       <div
-        className="overflow-hidden w-full rounded-md  aspect-[3/2] min-h-[180px] cursor-pointer "
+        className="overflow-hidden w-full rounded-md  aspect-[3/2] min-h-[180px] cursor-pointer bg-[#fefef] flex justify-center items-center"
         onClick={handleClick}
       >
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover object-top"
+          className="w-[80%] h-[80%] object-cover object-top hover:scale-105 transition-all duration-300 z-10"
         />
       </div>
       <div className="cardContent">
-        <h6 className="text-left"> {title}</h6>
+        <section className="w-full h-full">
+          <h6 className="text-left w-full font-medium"> {title}</h6>
+          <p className="text-gray-400 font-light text-left line-clamp-1 text-[12px]">
+            {description}
+          </p>
+        </section>
         <span className="flex justify-start w-full items-center gap-2">
-          {rating?.rate}
-          <div className="flex justify-start w-full items-cente gap-1">
-            {[...Array(5)].map((_, index) => (
-              <Star
-                key={index}
-                className={`w-4 h-4 ${
-                  index < rating?.rate
-                    ? "text-green-500 fill-green-500"
-                    : "text-gray-300"
-                }`}
-              />
-            ))}
-          </div>
+          <p className="text-[12px]">{rating?.rate}</p>
+          <Rating rate={rating.rate} />
           <span className="text-[12px] font-normal text-blue-500">
             ({rating?.count})
           </span>
         </span>
-        <span className="card-price">
-          <h4>Price </h4>
+        <span className="flex justify-between items-center w-full py-2">
           <h5>{util.formatCurrency(price)}</h5>
+          <button
+            disabled={InCart}
+            className="bg-transparent border-[1px] border-green-300 px-2 py-[2px] rounded-md text-green-500 hover:text-green-700 hover:border-green-700 transition-all duration-300"
+            onClick={() => {
+              handleAddProduct({
+                id,
+                title,
+                description,
+                image,
+                price,
+                units: 1,
+              });
+              handleInCart(id);
+            }}
+          >
+            <p className="text-[13px]">
+              {" "}
+              {!InCart ? "Add To Cart" : "In Cart"}
+            </p>
+          </button>
         </span>
-        <button
-          disabled={InCart}
-          className="btnAdd"
-          onClick={() => {
-            handleAddProduct({
-              id,
-              title,
-              description,
-              image,
-              price,
-              units: 1,
-            });
-            handleInCart(id);
-          }}
-        >
-          {!InCart ? "Add To Cart" : "In Cart"}
-        </button>
       </div>
     </div>
   );

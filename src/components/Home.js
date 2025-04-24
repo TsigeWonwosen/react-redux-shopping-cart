@@ -3,11 +3,12 @@ import ProductCard from "../components/Product";
 // import categories from "../data/Data.json";
 // import featuredProducts from "../data/Data.json";
 import Catagory from "./Category";
+import Header from "./Header";
 // import { handleCart } from "../redux/action/cartAction";
 const Home = ({ handleAddProduct, handleInCart, product }) => {
   return (
     <>
-      <div className="home">
+      <div className="home max-w-screen-xl mx-auto">
         {/* Hero */}
         <section className="hero">
           <div className="hero__content">
@@ -19,7 +20,7 @@ const Home = ({ handleAddProduct, handleInCart, product }) => {
 
         {/* Categories */}
         <section className="hero-categories">
-          <h2 className="section-title">Shop by Category</h2>
+          <Header title="Popular products" />
           <div className="hero-grid">
             {product.slice(0, 6).map((cat) => (
               <ProductCard
@@ -48,7 +49,7 @@ const Home = ({ handleAddProduct, handleInCart, product }) => {
         </section>
         {/* Featured */}
         <section className="hero-featured">
-          <h2 className="section-title">Featured Products</h2>
+          <Header title="Featured Products" />
           <div className="product-grid">
             {product.slice(14, 20).map((product) => (
               <ProductCard
