@@ -129,6 +129,8 @@ export default function SingleProduct({
               <Product
                 {...res}
                 key={res.id}
+                handleAddProduct={handleAddProduct}
+                handleInCart={handleInCart}
               />
             ))}
         </section>

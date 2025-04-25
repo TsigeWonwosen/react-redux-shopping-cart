@@ -7,7 +7,7 @@ import {
   TOTAL_CART,
 } from "../redux/action/type";
 import util from "../utility/util";
-import { X } from "lucide-react";
+import { Minus, Plus, X } from "lucide-react";
 
 const CartItem = ({
   image,
@@ -21,19 +21,22 @@ const CartItem = ({
   remove,
 }) => {
   const itemRender = () => (
-    <div className="flex w-full h-ful justify-between items-center border-b-[1px] border-gray-900/10 py-2 px-2 md:px-4 gap-1  md:gap-2 ">
-      <button onClick={() => remove()}>
-        <X className="text-red-500 w-4 h-4 md:w-5 md:h-5" />
+    <div className="flex w-full h-full justify-between items-center border-b-[1px] border-gray-900/10 py-2 px-1 md:px-4   md:gap-2 ">
+      <button
+        onClick={() => remove()}
+        className="md:w-[30px]"
+      >
+        <X className="text-red-500  w-4  h-5" />
       </button>
 
-      <div className="overflow-hidden w-full rounded-md  aspect-[3/2] max-w-[70px]">
+      <div className="overflow-hidden w-[50px] rounded-md  aspect-[3/2] md:max-w-[10%]">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover object-top"
         />
       </div>
-      <div className="flex justify-start flex-col flex-grow items-center md:gap-3 w-auto sm:max-w-[250px] p-2  md:max-w-[350px]">
+      <div className="flex justify-start flex-col flex-grow items-center md:gap-3 w-auto md:max-w-[40%] p-2  max-w-[25%]">
         <h5 className="text-start w-full font-semibold text-[10px] sm:text-[12px] md:text-[16px]">
           {title}
         </h5>
@@ -42,19 +45,21 @@ const CartItem = ({
         </h6>
       </div>
 
-      <div className="md:w-[20%]  text-center">
+      <div className="w-[50px] md:w-[10%]  text-center">
         <h6 className="item-price">{util.formatCurrency(price)}</h6>
       </div>
-      <div className="md:w-[100px] flex justify-between flex-col md:flex-row items-center md:gap-2 h-full border-[1px] border-green-300/50 rounded-md p-1 md:px-3">
+      <div className="w-[11%] flex justify-center  items-center gap-[3px] md:gap-2 h-auto md:h-[25px] flex-col md:flex-row">
         <button
           onClick={() => increase()}
-          className="bg-white/40 px-[4px] rounded-sm font-semibold md:text-2xl text-md"
+          className="text-gray-500 px-[3px] py-[3px] font-medium md:text-2xl text-md hover:text-green-400 transition-all duration-200 border-[1px] border-gray-300/50 rounded-md"
         >
-          +
+          <Plus className="w-5 h-5 text-green-400  hover:text-green-600" />
         </button>
-        <span className="font-bold text-[12] md:text-[16px]">{units}</span>
+        <span className="font-bold text-[12] md:text-[16px] flex justify-center items-center">
+          {units}
+        </span>
         <button
-          className="bg-white/40 px-[4px] rounded-sm font-semibold md:text-2xl text-md"
+          className="text-gray-500 px-[3px]  py-[3px] font-medium md:text-2xl text-md transition-all duration-200 border-[1px] border-gray-300/50 rounded-md"
           onClick={() => {
             if (units === 1) {
               return remove();
@@ -62,7 +67,7 @@ const CartItem = ({
             return decrease();
           }}
         >
-          -
+          <Minus className="w-5 h-5 text-green-400  hover:text-green-600" />
         </button>
       </div>
       <div className="w-[10%] flex justify-end items-center ">

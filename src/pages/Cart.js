@@ -9,7 +9,7 @@ import {
 } from "../redux/action/cartAction";
 import CartItem from "../components/CartItem";
 import PayPal from "../components/Paypal";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, MoveLeft } from "lucide-react";
 
 class Cart extends React.Component {
   componentDidMount() {
@@ -62,29 +62,44 @@ class Cart extends React.Component {
             Continue Shopping
           </button>
         </header>
-        <div className="flex w-full flex-1 justify-between items-start gap-2 bg-white rounded-md md:flex-row flex-col">
-          <section className="md:w-3/4 w-full h-full px-3 py-2 rounded-sm shadow-md flex flex-col overflow-auto ">
-            <div className="py-3 px-3 md:px-6 w-full flex justify-between items-center border-b-[1px] border-gray-900/30 text-md md:font-semibold font-normal">
-              <span></span>
-              <h5 className="w-[43%] text-center pr-4 hidden md:block">
-                Product
-              </h5>
-              <h5 className="w-[100px] text-center hidden md:block">Price</h5>
-              <h5 className="w-[100px] hidden md:block">Quantity</h5>
-              <h5>Total</h5>
+        <div className="flex w-full flex-1 justify-between items-start gap-2 bg-white rounded-md lg:flex-row flex-col">
+          <div className="flex flex-col justify-start items-start w-full h-full lg:w-3/4">
+            <section className="w-full h-full px-3 py-2 rounded-sm  flex flex-col overflow-auto ">
+              <div className="py-3 px-3 md:px-6 w-full flex justify-between items-center border-b-[1px] border-gray-900/30 text-md md:font-medium font-normal">
+                <span className="w-[10%]"></span>
+                <h5 className="w-[50%] text-center pr-4 hidden md:block ">
+                  Product
+                </h5>
+                <h5 className="w-[10%] text-center hidden md:block">Price</h5>
+                <h5 className="w-[15%] hidden md:block text-center">
+                  Quantity
+                </h5>
+                <h5 className="md:w-[10%] text-right pr-2 md:pr-0  w-auto">
+                  SubTotal
+                </h5>
+              </div>
+              <div className="w-full h-full ">
+                {carT.map((c) => (
+                  <CartItem
+                    key={c.id}
+                    {...c}
+                    deleteFromCart={deleteFromCart}
+                  />
+                ))}
+              </div>
+            </section>
+            <div className="w-full h-auto flex justify-end items-start  mt-4  px-4">
+              <button
+                className=" flex justify-center items-center gap-2 text-green-800 hover:text-green-600 text-md border-[1px] border-green-900/80 hover:border-green-500/90  py-1 rounded-sm  w-auto  font-semibold px-3 transition-all duration-300"
+                onClick={() => history.push("/product")}
+              >
+                <MoveLeft />
+                Back to basket
+              </button>
             </div>
-            <div className="w-full h-full ">
-              {carT.map((c) => (
-                <CartItem
-                  key={c.id}
-                  {...c}
-                  deleteFromCart={deleteFromCart}
-                />
-              ))}
-            </div>
-          </section>
+          </div>
 
-          <section className="md:w-1/4 w-full h-full flex flex-col justify-start gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
+          <section className="lg:w-1/4 w-full h-full flex flex-col justify-start gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
             <h3 className="text-center text-2xl font-semibold"> Summary</h3>
             <div className=" flex flex-col gap-2 h-full w-full px-7 py-2 mt-4 bg-gray-50/50">
               <section className="flex justify-between items-center">
@@ -108,14 +123,9 @@ class Cart extends React.Component {
               clearFromCart={clearFromCart}
               history={history}
             />
+
             <button
-              className="text-white text-lg bg-green-500/80 hover:bg-green-500/90  py-2 rounded-[6px]  mb-1 w-full mx-auto font-semibold px-6"
-              onClick={() => history.push("/product")}
-            >
-              Back to basket
-            </button>
-            <button
-              className="text-white bg-red-500/80 text-lg hover:bg-red-500/90  py-2 rounded-[6px]  w-full mb-2 mx-auto font-semibold  px-6 "
+              className="text-white/80 bg-red-900 text-md hover:bg-red-800/90  py-[6px] rounded-sm  w-full mb-1 mx-auto font-medium  px-6 "
               onClick={() => {
                 resetProduct();
                 totalCart();

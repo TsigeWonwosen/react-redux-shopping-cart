@@ -3,17 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 export default function HeroCarousel() {
   const slides = [
     {
-      img: "/images/product1.jpg",
+      img: "/images/product-1.jpg",
       title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
       subtitle: "Explore our latest shoe collection",
     },
     {
-      img: "/images/product2.jpg",
+      img: "/images/product-2.jpg",
       title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
       subtitle: "Industrial shoes made for your safety",
     },
     {
-      img: "/images/product3.jpg",
+      img: "/images/product-3.jpg",
       title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
       subtitle: "Find the perfect pair for every occasion",
     },
@@ -35,13 +35,13 @@ export default function HeroCarousel() {
   }, [current, slides.length]);
 
   return (
-    <div className="relative w-full h-[350px] overflow-hidden rounded-t-md ">
+    <div className="relative w-full h-[380px] overflow-hidden rounded-t-md ">
       {/* Image Section with diagonal clip */}
       <div className="absolute inset-0 z-0 clip-right">
         <img
           src={slides[current].img}
           alt="Hero"
-          className="w-full h-full  object-cover object-right-top"
+          className="w-full h-full  object-cover object-bottom"
         />
       </div>
 

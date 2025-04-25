@@ -3,6 +3,7 @@ import util from "../utility/util";
 import "../styles/card.scss";
 import { useHistory } from "react-router-dom";
 import Rating from "./Rating";
+import { Heart } from "lucide-react";
 
 export default function Product({
   id,
@@ -21,7 +22,7 @@ export default function Product({
     history.push(`/product/${id}`);
   };
   return (
-    <div className="product-card">
+    <div className="product-card relative">
       <div
         className="overflow-hidden w-full rounded-md  aspect-[3/2] min-h-[180px] cursor-pointer bg-[#fefef] flex justify-center items-center"
         onClick={handleClick}
@@ -69,6 +70,9 @@ export default function Product({
             </p>
           </button>
         </span>
+      </div>
+      <div className="absolute top-[7px] right-[12px] w-7 h-7 bg-white/50 shadow-md rounded-full z-10 flex justify-center items-center">
+        <Heart className="w-4 h-4 text-green-400 fill-green-100" />
       </div>
     </div>
   );
