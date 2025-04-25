@@ -9,7 +9,7 @@ export default function ProductContainer({
   handleInCart,
 }) {
   return (
-    <div className="App container">
+    <div className="App container bg-white mt-4">
       <Filter />
 
       <Header title="All products" />

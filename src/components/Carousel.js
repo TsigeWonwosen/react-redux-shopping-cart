@@ -3,17 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 export default function HeroCarousel() {
   const slides = [
     {
-      img: "/images/product-1.jpg",
+      img: "/images/ethiopia1.png",
       title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
       subtitle: "Explore our latest shoe collection",
     },
     {
-      img: "/images/product-2.jpg",
+      img: "/images/ethiopia2.png",
       title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
       subtitle: "Industrial shoes made for your safety",
     },
     {
-      img: "/images/product-3.jpg",
+      img: "/images/ethiopia3.png",
       title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
       subtitle: "Find the perfect pair for every occasion",
     },
@@ -35,30 +35,32 @@ export default function HeroCarousel() {
   }, [current, slides.length]);
 
   return (
-    <div className="relative w-full h-[380px] overflow-hidden rounded-t-md ">
+    <div className="relative w-full h-[380px] overflow-hidden rounded-t-md mb-4">
       {/* Image Section with diagonal clip */}
-      <div className="absolute inset-0 z-0 clip-right">
-        <img
-          src={slides[current].img}
-          alt="Hero"
-          className="w-full h-full  object-cover object-bottom"
-        />
+      <div className="absolute inset-0 z-10 clip-right bg-blue-700/60">
+        <div className="flex justify-end items-center z-50 h-full w-full">
+          <img
+            src={slides[current].img}
+            alt="Hero"
+            className="w-[85%] h-full object-cover object-top"
+          />
+        </div>
       </div>
 
       {/* Text Section with diagonal clip */}
-      <div className="absolute inset-0 bg-black/90 text-white z-10 clip-left p-10 flex flex-col justify-center w-full ">
-        <div className="w-[70%] h-full">
-          <h1 className="text-2xl md:text-3xl font-bold mb-4 w-[80%] z-100">
+      <div className="absolute inset-0 bg-gradient-to-l from-white to-[#0c2570] text-gray-300 z-10 clip-left p-10 flex flex-col justify-center w-full ">
+        <div className="w-[65%] h-full flex flex-col justify-center items-start">
+          <h1 className="text-xl md:text-2xl font-bold mb-4 w-[80%] z-100">
             {slides[current].title}
           </h1>
-          <p className="text-lg md:text-2xl mb-6 max-w-md">
+          <p className="text-md md:text-lg mb-6 max-w-md">
             {slides[current].subtitle}
           </p>
           <div className="space-x-4">
             <button className="px-6 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-yellow-300 transition">
               Shop Now
             </button>
-            <button className="px-6 py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition">
+            <button className="px-6 py-2 border-[1px] border-white text-white bg-transparent font-semibold rounded-md hover:bg-gray-200 transition">
               Learn More
             </button>
           </div>

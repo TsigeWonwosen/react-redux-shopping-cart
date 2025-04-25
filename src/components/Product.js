@@ -30,7 +30,7 @@ export default function Product({
         <img
           src={image}
           alt={title}
-          className="w-[80%] h-[80%] object-cover object-top hover:scale-105 transition-all duration-300 z-10"
+          className="w-[80%] h-[80%] object-cover object-top hover:scale-105 transition-all duration-300 z-10 rounded-md"
         />
       </div>
       <div className="cardContent">
