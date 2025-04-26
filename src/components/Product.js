@@ -71,8 +71,8 @@ export default function Product({
           </button>
         </span>
       </div>
-      <div className="absolute top-[7px] right-[12px] w-7 h-7 bg-white/50 shadow-md rounded-full z-10 flex justify-center items-center">
-        <Heart className="w-4 h-4 text-green-400 fill-green-100" />
+      <div className="absolute top-[5px] right-[11px] w-7 h-7 bg-white/70 shadow-lg rounded-full z-10 flex justify-center items-center">
+        <Heart className="w-4 h-4 text-green-600 fill-green-200" />
       </div>
     </div>
   );

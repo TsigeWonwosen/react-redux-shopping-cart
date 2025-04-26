@@ -40,7 +40,7 @@ export default function HeroCarousel() {
   return (
     <div className="relative w-full h-[380px] overflow-hidden rounded-t-md mb-4">
       {/* Image Section with diagonal clip */}
-      <div className="absolute inset-0 z-10 clip-right bg-blue-700/60">
+      <div className="hidden absolute inset-0 z-10 clip-right bg-blue-700/60 md:block">
         <div className="flex justify-end items-center z-50 h-full w-full">
           <img
             src={slides[current].img}
@@ -51,19 +51,19 @@ export default function HeroCarousel() {
       </div>
 
       {/* Text Section with diagonal clip */}
-      <div className="absolute inset-0 bg-gradient-to-l from-white to-[#0c2570] text-gray-300 z-10 clip-left p-10 flex flex-col justify-center w-full ">
-        <div className="w-[65%] h-full flex flex-col justify-center items-start">
-          <h1 className="text-xl md:text-2xl font-bold mb-4 w-[80%] z-100">
+      <div className="absolute inset-0 bg-gradient-to-l from-white to-[#0c2570] text-gray-300 z-5 md:clip-left p-10 flex flex-col justify-center w-full ">
+        <div className=" w-[90%] sm:w-[80%] md:w-[65%] h-full flex flex-col justify-center items-start">
+          <h1 className="text-md sm:text-xl md:text-2xl font-bold mb-4 w-[80%] z-100">
             {slides[current].title}
           </h1>
-          <p className="text-md md:text-lg mb-6 max-w-md">
+          <p className="text-md md:text-lg mb-6 max-w-md line-clamp-2 md:line-clamp-none">
             {slides[current].subtitle}
           </p>
           <div className="space-x-4">
-            <button className="px-6 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-yellow-300 transition">
+            <button className="px-3 py-2 md:px-6 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500 transition">
               Shop Now
             </button>
-            <button className="px-6 py-2 border-[1px] border-white text-white bg-transparent font-semibold rounded-md hover:bg-gray-200 transition">
+            <button className="px-3  md:px-6 py-2 border-[1px] border-white text-white bg-transparent font-semibold rounded-md hover:border-gray-400 transition">
               Learn More
             </button>
           </div>

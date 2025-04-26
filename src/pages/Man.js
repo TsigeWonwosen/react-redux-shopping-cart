@@ -1,10 +1,10 @@
 import React from "react";
 import Product from "../components/Product";
+import filterByCategory from "../utility/filterByCategory";
 
 function Man({ product, handleAddProduct, deleteFromCart, handleInCart }) {
-  const filteredItems = product.filter((prod) =>
-    prod.category.toLowerCase().includes("men")
-  );
+  const filteredItems = filterByCategory(product, "men's");
+
   return (
     <div className="container max-w-screen-xl mx-auto">
       <section className="container cardContainer">

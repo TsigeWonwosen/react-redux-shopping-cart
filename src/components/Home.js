@@ -5,6 +5,7 @@ import ProductCard from "../components/Product";
 import Catagory from "./Category";
 import Header from "./Header";
 import HeroCarousel from "./Carousel";
+import SubscribeSection from "./SubscribeSection";
 // import { handleCart } from "../redux/action/cartAction";
 const Home = ({ handleAddProduct, handleInCart, product }) => {
   return (
@@ -43,9 +44,9 @@ const Home = ({ handleAddProduct, handleInCart, product }) => {
           </div>
         </section>
         {/* Featured */}
-        <section className="hero-featured">
+        <section className="hero-categories w-full">
           <Header title="Featured Products" />
-          <div className="product-grid">
+          <div className="hero-grid">
             {product.slice(14, 19).map((product) => (
               <ProductCard
                 key={product.id}
@@ -56,6 +57,7 @@ const Home = ({ handleAddProduct, handleInCart, product }) => {
             ))}
           </div>
         </section>
+        <SubscribeSection />
       </div>
     </>
   );
