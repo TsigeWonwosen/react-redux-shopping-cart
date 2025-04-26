@@ -4,18 +4,21 @@ export default function HeroCarousel() {
   const slides = [
     {
       img: "/images/ethiopia1.png",
-      title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
-      subtitle: "Explore our latest shoe collection",
+      title: "Ethiopian Traditional Dress!",
+      subtitle:
+        "Free size beautiful Ethiopian Traditional dress. 100% cotton and Handmade. Fikerfashion traditional clothing",
     },
     {
       img: "/images/ethiopia2.png",
-      title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
-      subtitle: "Industrial shoes made for your safety",
+      title: "Wand Woven Cotton Clothing!",
+      subtitle:
+        "Habesha Kemis is a white hand-woven cotton clothing that is made from shemma. The shemma is hand-woven by traditional weavers and Hand-made patterns known as Tibeb (ጢቤቤ) are made using woven shiny threads and are added to the Kemis on the waistband and edges.",
     },
     {
       img: "/images/ethiopia3.png",
-      title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
-      subtitle: "Find the perfect pair for every occasion",
+      title:
+        "Eritrean and Ethiopian habesha traditional dress Chiffon / Shiffon",
+      subtitle: "Fabric details: - Cotton fabric with full lining Length",
     },
   ];
 

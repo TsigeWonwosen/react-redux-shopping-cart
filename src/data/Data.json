@@ -1,6 +1,66 @@
 [
   {
     "id": 1,
+    "image": "/images/ethiopia-1.jpg",
+    "title": "Ethiopian Traditional Dress!",
+    "category": "women's clothing",
+    "price": 350.99,
+    "rating": {
+      "rate": 4.3,
+      "count": 12
+    },
+    "description": "Free size beautiful Ethiopian Traditional dress. 100% cotton and Handmade. Fikerfashion traditional clothing"
+  },
+  {
+    "id": 2,
+    "image": "/images/ethiopia-2.jpg",
+    "title": "Wand Woven Cotton Clothing!",
+    "description": "Habesha Kemis is a white hand-woven cotton clothing that is made from shemma. The shemma is hand-woven by traditional weavers and Hand-made patterns known as Tibeb (ጢቤቤ) are made using woven shiny threads and are added to the Kemis on the waistband and edges.",
+    "category": "women's clothing",
+    "price": 520.3,
+    "rating": {
+      "rate": 4.3,
+      "count": 12
+    }
+  },
+  {
+    "id": 3,
+    "image": "/images/ethiopia-3.jpg",
+    "title": "Eritrean and Ethiopian habesha traditional dress Chiffon / Shiffon",
+    "description": "Fabric details: - Cotton fabric with full lining Length",
+    "category": "women's clothing",
+    "price": 430.59,
+    "rating": {
+      "rate": 4.9,
+      "count": 12
+    }
+  },
+  {
+    "id": 4,
+    "image": "/images/product2.jpg",
+    "title": "Ethiopian habesha traditional dress Chiffon / Shiffon",
+    "description": "Fabric details: - Cotton fabric with full lining Length",
+    "category": "women's clothing",
+    "price": 399.59,
+    "rating": {
+      "rate": 4.1,
+      "count": 6
+    }
+  },
+  {
+    "id": 5,
+    "image": "/images/ethiopia-4.jpg",
+    "title": "Ethiopian | Amhara Man Traditional Cloth",
+    "description": "Fabric details: - Cotton fabric with full lining Length",
+    "category": "men's clothing",
+    "price": 350.59,
+    "rating": {
+      "rate": 3.9,
+      "count": 12
+    }
+  },
+  {
+    "id": 27,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     "price": 109.95,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
@@ -12,7 +72,7 @@
     }
   },
   {
-    "id": 2,
+    "id": 28,
     "title": "Mens Casual Premium Slim Fit T-Shirts ",
     "price": 22.3,
     "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
@@ -24,7 +84,7 @@
     }
   },
   {
-    "id": 3,
+    "id": 29,
     "title": "Mens Cotton Jacket",
     "price": 55.99,
     "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
@@ -36,7 +96,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 30,
     "title": "Mens Casual Slim Fit",
     "price": 15.99,
     "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
@@ -48,7 +108,7 @@
     }
   },
   {
-    "id": 5,
+    "id": 31,
     "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
     "price": 695,
     "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
