@@ -18,7 +18,7 @@ export default function NavBar({ cartLen }) {
           >
             <span className="text-md md:text-lg  text-[#00B34A] text-center mr-1   flex  justify-center items-center">
               The
-            </span>{" "}
+            </span>
             Ethiopian
             <span className="text-[25px] text-green-600 text-center h-4 w-2 mb-1 flex  justify-center items-center">
               .

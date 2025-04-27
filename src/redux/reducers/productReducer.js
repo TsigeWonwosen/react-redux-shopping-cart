@@ -1,3 +1,4 @@
+import filterByCategory from "../../utility/filterByCategory";
 import {
   FETCH_PRODUCT,
   FILTERED_PRODUCT,
@@ -7,6 +8,7 @@ import {
   FETCH_PRODUCTS_ERROR,
   FETCH_PRODUCTS_PENDING,
   FETCH_PRODUCTS_SUCCESS,
+  FILTERED_PRODUCT_BY_CATEGORY,
 } from "../action/type";
 
 const initialState = {
@@ -60,6 +62,27 @@ const productReducer = (state = initialState, action) => {
         ...state,
         filteredItems: action.payload.items,
         sort: action.payload.sort,
+      };
+    case FILTERED_PRODUCT_BY_CATEGORY:
+      const filteredByCategory = filterByCategory(state.items, action.payload);
+      if (action.payload === "") {
+        return { ...state, filteredItems: state.items };
+      }
+      if (filteredByCategory.length === 0) {
+        return { ...state, filteredItems: state.items };
+      }
+      return {
+        ...state,
+        filteredItems: filteredByCategory,
+      };
+    case "SEARCH_PRODUCT":
+      const searchTerm = action.payload.toLowerCase();
+      const searchedItems = state.items.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm)
+      );
+      return {
+        ...state,
+        filteredItems: searchedItems,
       };
     case RESET_PRODUCT:
       return { ...state, filteredItems: state.items };

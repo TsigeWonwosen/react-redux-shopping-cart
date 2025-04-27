@@ -1,9 +1,8 @@
 import React from "react";
-import productDatas from "../data/Data.json";
 import Product from "../components/Product";
 
 function Kids({ product, handleAddProduct, deleteFromCart, handleInCart }) {
-  const filteredItems = productDatas.filter((prod) =>
+  const filteredItems = product.filter((prod) =>
     prod.category.toLowerCase().includes("kid")
   );
 

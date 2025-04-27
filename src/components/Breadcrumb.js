@@ -6,6 +6,14 @@ export default function Breadcrumb() {
 
   // Split the current path and filter out empty strings
   const pathnames = location.pathname.split("/").filter((x) => x);
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get("category");
+  const search = queryParams.get("search");
+  // console.log("search", search);
+  // console.log("category", category);
+  if (category) {
+    pathnames.push(category);
+  }
 
   return (
     <section className="text-sm text-gray-500 flex justify-start items-center mb-2 w-full">
@@ -58,6 +66,16 @@ export default function Breadcrumb() {
             </li>
           );
         })}
+        {search && (
+          <li className="flex justify-center items-center ml-9">
+            <span className="mx-2 text-gray-400">
+              <ChevronRight size={"14px"} />
+            </span>
+            <span className="text-gray-800">
+              Search results for : "{search}" `
+            </span>
+          </li>
+        )}
       </ol>
     </section>
   );

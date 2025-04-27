@@ -6,17 +6,12 @@ import {
   FETCH_PRODUCTS_PENDING,
   FETCH_PRODUCTS_SUCCESS,
   FILTERED_PRODUCT,
+  FILTERED_PRODUCT_BY_CATEGORY,
   SORT_PRODUCT_BY_PRICE,
   HANDLE_IN_CART,
   CLEAR_CART,
   TOTAL_CART,
 } from "../action/type";
-// import { PRODUCTS } from "../../data/Data.json";
-// let PRODUCTS = []
-
-// fetch("https://fakestoreapi.com/products").then(res => res.json()).then(data => PRODUCTS = data)
-// .catch(error => console.log(error))
-// // Fetch Product
 
 export function fetchProductsPending() {
   return {
@@ -103,4 +98,15 @@ export const totalCart = () => {
 
 export const handleCart = (id) => {
   return { type: HANDLE_IN_CART, payload: id };
+};
+
+export const filterByCategories = (categories) => {
+  return { type: FILTERED_PRODUCT_BY_CATEGORY, payload: categories };
+};
+
+export const searchProduct = (search) => {
+  return {
+    type: "SEARCH_PRODUCT",
+    payload: search,
+  };
 };

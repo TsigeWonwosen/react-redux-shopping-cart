@@ -7,7 +7,12 @@ const Footer = () => {
       <div className="footer__container">
         {/* Logo + Description */}
         <div className="footer__section">
-          <h2 className="footer__logo">The Ethiopian</h2>
+          <h2 className="footer__logo flex items-center">
+            <span className="text-md md:text-xlg  text-[#00B34A] text-center mr-1   flex  justify-center items-center">
+              The
+            </span>{" "}
+            Ethiopian
+          </h2>
           <p className="footer__text">
             Your go-to destination for men’s, women’s, kids’ fashion &
             electronics.
