@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   sortProductByPrice,
-  filterByCategories,
-  searchProduct,
+  filterByCategoriesAndSearch,
 } from "../redux/action/cartAction";
 import { ListOrdered, Search } from "lucide-react";
 
@@ -26,24 +25,15 @@ function SearchAndFilter() {
     setSelectedCategory(value);
   };
 
-  const onCategoryChange = (item) => {
-    dispatch(filterByCategories(item));
-  };
-
   const handleSearch = (e) => {
     const search = e.target.value;
     setSearchTerm(search);
   };
 
-  const onSearch = (item) => {
-    dispatch(searchProduct(item));
-  };
-
   const hundleSubmit = (e) => {
     e.preventDefault();
     if (searchTerm !== "" || selectedCategory !== "") {
-      onSearch(searchTerm);
-      onCategoryChange(selectedCategory);
+      dispatch(filterByCategoriesAndSearch(selectedCategory, searchTerm));
       history.push(`?category=${selectedCategory}&search=${searchTerm}`);
     }
   };

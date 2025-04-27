@@ -6,7 +6,7 @@ import {
   FETCH_PRODUCTS_PENDING,
   FETCH_PRODUCTS_SUCCESS,
   FILTERED_PRODUCT,
-  FILTERED_PRODUCT_BY_CATEGORY,
+  FILTERED_PRODUCT_BY_CATEGORY_OR_SEARCH,
   SORT_PRODUCT_BY_PRICE,
   HANDLE_IN_CART,
   CLEAR_CART,
@@ -100,13 +100,9 @@ export const handleCart = (id) => {
   return { type: HANDLE_IN_CART, payload: id };
 };
 
-export const filterByCategories = (categories) => {
-  return { type: FILTERED_PRODUCT_BY_CATEGORY, payload: categories };
-};
-
-export const searchProduct = (search) => {
+export const filterByCategoriesAndSearch = (categories, search) => {
   return {
-    type: "SEARCH_PRODUCT",
-    payload: search,
+    type: FILTERED_PRODUCT_BY_CATEGORY_OR_SEARCH,
+    payload: { categories, search },
   };
 };
