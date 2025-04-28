@@ -65,17 +65,32 @@ const productReducer = (state = initialState, action) => {
       };
 
     case FILTERED_PRODUCT_BY_CATEGORY_OR_SEARCH:
-      const filteredByCategory = filterByCategory(
-        state.items,
-        action.payload.categories
-      );
-      if (action.payload === "") {
-        return { ...state, filteredItems: state.items };
+      const filteredByCategory = [];
+
+      const searchTerm = action.payload?.search.toLowerCase();
+      if (action.payload.categories === "all") {
+        return {
+          ...state,
+          filteredItems:
+            action.payload.search.length > 0
+              ? state.items.filter((item) =>
+                  item.title.toLowerCase().includes(searchTerm)
+                )
+              : state.items,
+        };
+      } else {
+        filteredByCategory.push(
+          ...filterByCategory(state.items, action.payload.categories)
+        );
       }
+
       if (filteredByCategory.length === 0) {
         return { ...state, filteredItems: state.items };
       }
-      const searchTerm = action.payload.search.toLowerCase();
+
+      if (searchTerm === "") {
+        return { ...state, filteredItems: filteredByCategory };
+      }
       const searchedItems = filteredByCategory.filter((item) =>
         item.title.toLowerCase().includes(searchTerm)
       );

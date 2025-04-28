@@ -39,9 +39,9 @@ function SearchAndFilter() {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-center justify-center gap-2 mx-auto mb-8 max-w-4xl mt-4">
+    <div className="w-full h-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-2 mx-auto mb-8 max-w-4xl mt-8  p-4 rounded-md shadow-sm">
       <form
-        className=" flex justify-between items-center w-full md:w-2/3 border h-8 border-gray-300  overflow-hidden rounded-md  focus:ring-green-500 transition   focus:ring-2 focus:outline-none"
+        className=" flex justify-center flex-col items-center w-full  overflow-hidden rounded-md max-w-[450px] gap-3 sm:gap-0 sm:flex-row h-auto"
         onSubmit={hundleSubmit}
       >
         <input
@@ -49,32 +49,34 @@ function SearchAndFilter() {
           placeholder="Search products..."
           value={searchTerm}
           onChange={handleSearch}
-          className="flex-1 h-full  px-6 py-1  focus:ring-green-500 transition   focus:ring-2 focus:outline-none"
+          className=" h-9 w-full  px-6 py-1  focus:ring-green-500 transition   focus:ring-2 focus:outline-none border rounded-md sm:flex-1 sm:rounded-none sm:rounded-l-md border-gray-300  "
         />
-        <select
-          value={selectedCategory}
-          onChange={handleCategory}
-          className="w-auto md:w-1/4 px-3 py-1 border-2 border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition bg-white "
-        >
-          <option value="">All Categories</option>
-          {categories.map((category, idx) => (
-            <option
-              key={idx}
-              value={category}
-            >
-              {category}
-            </option>
-          ))}
-        </select>
-        <button
-          className=" w-8 h-full py-1 bg-green-500 flex items-center justify-center  hover:bg-green-600 transition duration-200 ease-in-out"
-          type="submit"
-        >
-          <Search className=" text-white w-[14px] h-[14px] font-semibold  " />
-        </button>
+        <div className="flex items-center justify-between w-auto h-auto border-t border-gray-300">
+          <select
+            value={selectedCategory}
+            onChange={handleCategory}
+            className="w-auto  h-9 px-2 py-1 border-[1px] sm:bottom-0 sm:border-x-[1px] z-5 border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition bg-white "
+          >
+            <option value="all">All Categories</option>
+            {categories.map((category, idx) => (
+              <option
+                key={idx}
+                value={category}
+              >
+                {category}
+              </option>
+            ))}
+          </select>
+          <button
+            className=" w-[50px] h-9 py-1 bg-green-500 flex items-center justify-center active:bg-green-500 focus:bg-green-500 hover:bg-green-600 transition duration-200 ease-in-out rounded-r-md"
+            type="submit"
+          >
+            <Search className=" text-white w-[14px] h-[14px] font-semibold  " />
+          </button>
+        </div>
       </form>
 
-      <div className="flex justify-center items-center gap-3 h-full flex-1">
+      <div className="flex justify-center items-center gap-3 h-full w-auto">
         <label className="block text-sm font-medium text-gray-700">
           <ListOrdered />
         </label>

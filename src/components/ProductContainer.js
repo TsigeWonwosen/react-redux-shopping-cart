@@ -3,6 +3,7 @@ import Product from "./Product";
 import Header from "./Header";
 import SearchAndFilter from "./SearchAndFilter";
 import Breadcrumb from "./Breadcrumb";
+import { LightbulbIcon } from "lucide-react";
 export default function ProductContainer({
   product,
   handleAddProduct,
@@ -15,6 +16,16 @@ export default function ProductContainer({
       <Header title="All products" />
       <SearchAndFilter />
       <section className="cardContainer">
+        {product.length === 0 && (
+          <div className="flex justify-center items-center w-auto px-6 py-3 rounded-sm h-full bg-[#FFF3CD]">
+            <span className="bg-yellow-400 text-xl mr-2 rounded-full p-1">
+              <LightbulbIcon className="text-gray-100 " />
+            </span>
+            <h1 className="text-lg font-bold text-green-700/60">
+              No products were found matching your selection.
+            </h1>
+          </div>
+        )}
         {product.map((prod) => {
           return (
             <Product

@@ -9,8 +9,7 @@ export default function Breadcrumb() {
   const queryParams = new URLSearchParams(location.search);
   const category = queryParams.get("category");
   const search = queryParams.get("search");
-  // console.log("search", search);
-  // console.log("category", category);
+
   if (category) {
     pathnames.push(category);
   }
