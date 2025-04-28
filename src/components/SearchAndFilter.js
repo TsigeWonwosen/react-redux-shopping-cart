@@ -51,11 +51,11 @@ function SearchAndFilter() {
           onChange={handleSearch}
           className=" h-9 w-full  px-6 py-1  focus:ring-green-500 transition   focus:ring-2 focus:outline-none border rounded-md sm:flex-1 sm:rounded-none sm:rounded-l-md border-gray-300  "
         />
-        <div className="flex items-center justify-between w-auto h-auto border-t border-gray-300">
+        <div className="flex items-center justify-between w-auto h-auto  ">
           <select
             value={selectedCategory}
             onChange={handleCategory}
-            className="w-auto  h-9 px-2 py-1 border-[1px] sm:bottom-0 sm:border-x-[1px] z-5 border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition bg-white "
+            className="w-auto  h-9 px-2 py-1 border-[1px] sm:bottom-0 sm:border-x-[1px]  border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition  "
           >
             <option value="all">All Categories</option>
             {categories.map((category, idx) => (

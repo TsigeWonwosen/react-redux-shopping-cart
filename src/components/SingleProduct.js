@@ -25,14 +25,14 @@ export default function SingleProduct({
             <img
               src={filteredProduct.image}
               alt={filteredProduct.title}
-              className="object-cover w-auto h-full object-top "
+              className="object-cover w-auto h-full object-top rounded-sm "
             />
           </div>
           <div className=" flex justify-start h-[90px]  w-full px-4">
             <img
               src={filteredProduct.image}
               alt={filteredProduct.title}
-              className="object-cover w-auto h-[60px] object-top"
+              className="object-cover w-[50px] h-[50px] object-top rounded-md"
             />
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function SingleProduct({
               </button>
               <button
                 onClick={() => {
-                  handleAddProduct({ ...filteredProduct });
+                  handleAddProduct({ ...filteredProduct, units: 1 });
                   handleInCart(parseInt(filteredProduct.id));
                 }}
                 disabled={filteredProduct?.InCart}

@@ -3,19 +3,19 @@ import React, { useEffect, useRef, useState } from "react";
 export default function HeroCarousel() {
   const slides = [
     {
-      img: "/images/ethiopia1.png",
+      img: "/images/bg-image1.png",
       title: "Ethiopian Traditional Dress!",
       subtitle:
         "Free size beautiful Ethiopian Traditional dress. 100% cotton and Handmade. Fikerfashion traditional clothing",
     },
     {
-      img: "/images/ethiopia2.png",
-      title: "Wand Woven Cotton Clothing!",
+      img: "/images/bg-image2.png",
+      title: "Hand Woven Cotton Clothing!",
       subtitle:
         "Habesha Kemis is a white hand-woven cotton clothing that is made from shemma. The shemma is hand-woven by traditional weavers and Hand-made patterns known as Tibeb (ጢቤቤ) are made using woven shiny threads and are added to the Kemis on the waistband and edges.",
     },
     {
-      img: "/images/ethiopia3.png",
+      img: "/images/bg-image3.png",
       title:
         "Eritrean and Ethiopian habesha traditional dress Chiffon / Shiffon",
       subtitle: "Fabric details: - Cotton fabric with full lining Length",
@@ -33,7 +33,7 @@ export default function HeroCarousel() {
     resetTimeout();
     timeoutRef.current = setTimeout(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 7000);
     return () => resetTimeout();
   }, [current, slides.length]);
 
@@ -51,19 +51,19 @@ export default function HeroCarousel() {
       </div>
 
       {/* Text Section with diagonal clip */}
-      <div className="absolute inset-0 bg-gradient-to-l from-white to-[#0c2570] text-gray-300 z-5 md:clip-left p-10 flex flex-col justify-center w-full ">
+      <div className="absolute inset-0 bg-gradient-to-l from-white to-gray-300/40 text-green-900/70 z-5 md:clip-left p-10 flex flex-col justify-center w-full ">
         <div className=" w-[90%] sm:w-[80%] md:w-[65%] h-full flex flex-col justify-center items-start">
           <h1 className="text-md sm:text-xl md:text-2xl font-bold mb-4 w-[80%] z-100">
             {slides[current].title}
           </h1>
-          <p className="text-md md:text-lg mb-6 max-w-md line-clamp-2 md:line-clamp-none">
+          <p className="text-md md:text-lg mb-6 max-w-md line-clamp-2 md:line-clamp-none text-gray-500/80">
             {slides[current].subtitle}
           </p>
           <div className="space-x-4">
-            <button className="px-3 py-2 md:px-6 bg-green-600 text-white font-semibold rounded-md hover:bg-green-500 transition">
+            <button className="px-3 py-2 md:px-6 bg-green-600 text-gray-100 font-semibold rounded-md hover:bg-green-500 transition">
               Shop Now
             </button>
-            <button className="px-3  md:px-6 py-2 border-[1px] border-white text-white bg-transparent font-semibold rounded-md hover:border-gray-400 transition">
+            <button className="px-3  md:px-6 py-2 border-[1px] border-green-400 text-green-400 bg-transparent font-semibold rounded-md hover:border-green-500 transition">
               Learn More
             </button>
           </div>

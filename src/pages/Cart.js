@@ -99,7 +99,7 @@ class Cart extends React.Component {
             </div>
           </div>
 
-          <section className="lg:w-1/4 w-full h-full flex flex-col justify-start gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
+          <section className="lg:w-1/4 w-full h-full flex flex-col justify-start items-center gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
             <h3 className="text-center text-2xl font-semibold"> Summary</h3>
             <div className=" flex flex-col gap-2 h-full w-full px-7 py-2 mt-4 bg-gray-50/50">
               <section className="flex justify-between items-center">
@@ -118,22 +118,23 @@ class Cart extends React.Component {
                 </span>
               </section>
             </div>
-            <PayPal
-              total={newTotal}
-              clearFromCart={clearFromCart}
-              history={history}
-            />
-
-            <button
-              className="text-white/80 bg-red-900 text-md hover:bg-red-800/90  py-[6px] rounded-sm  w-full mb-1 mx-auto font-medium  px-6 "
-              onClick={() => {
-                resetProduct();
-                totalCart();
-                history.push("/product");
-              }}
-            >
-              Clear Cart
-            </button>
+            <div className="w-full h-full  mb-4">
+              <PayPal
+                total={newTotal}
+                clearFromCart={clearFromCart}
+                history={history}
+              />
+              <button
+                className="text-white/80 bg-red-900 text-md hover:bg-red-800/90  py-[7px] rounded-md  w-full mb-1 mx-auto font-medium  px-6 max-w-3xl transition-all duration-300"
+                onClick={() => {
+                  resetProduct();
+                  totalCart();
+                  history.push("/product");
+                }}
+              >
+                Clear Cart
+              </button>
+            </div>
           </section>
         </div>
       </section>

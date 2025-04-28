@@ -84,10 +84,6 @@ const productReducer = (state = initialState, action) => {
         );
       }
 
-      if (filteredByCategory.length === 0) {
-        return { ...state, filteredItems: state.items };
-      }
-
       if (searchTerm === "") {
         return { ...state, filteredItems: filteredByCategory };
       }

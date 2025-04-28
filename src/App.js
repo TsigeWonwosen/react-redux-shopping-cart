@@ -20,6 +20,7 @@ import {
 } from "./redux/action/cartAction";
 
 import "./styles/App.scss";
+import ScrollToTop from "./components/ScrollToTop";
 
 class App extends React.Component {
   handleAddProduct = (product) => {
@@ -40,6 +41,7 @@ class App extends React.Component {
         <div className="min-h-screen flex flex-col bg-white/80">
           <NavBar cartLen={cartLen} />
 
+          <ScrollToTop />
           <Switch>
             <Route
               exact
