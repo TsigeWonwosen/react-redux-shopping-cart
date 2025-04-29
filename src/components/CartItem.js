@@ -7,7 +7,7 @@ import {
   TOTAL_CART,
 } from "../redux/action/type";
 import util from "../utility/util";
-import { Minus, Plus, X } from "lucide-react";
+import { Minus, Plus, Trash, X } from "lucide-react";
 
 const CartItem = ({
   image,
@@ -50,16 +50,7 @@ const CartItem = ({
       </div>
       <div className="w-[11%] flex justify-center  items-center gap-[3px] md:gap-2 h-auto md:h-[25px] flex-col md:flex-row">
         <button
-          onClick={() => increase()}
-          className="text-gray-500 px-[3px] py-[3px] font-medium md:text-2xl text-md hover:text-green-400 transition-all duration-200 border-[1px] border-gray-300/50 rounded-md"
-        >
-          <Plus className="w-5 h-5 text-green-400  hover:text-green-600" />
-        </button>
-        <span className="font-bold text-[12] md:text-[16px] flex justify-center items-center">
-          {units}
-        </span>
-        <button
-          className="text-gray-500 px-[3px]  py-[3px] font-medium md:text-2xl text-md transition-all duration-200 border-[1px] border-gray-300/50 rounded-md"
+          className="text-gray-500 px-[2px]  py-[2px] font-medium md:text-2xl text-md transition-all duration-200 border-[1px] border-gray-300/50 rounded-md"
           onClick={() => {
             if (units === 1) {
               return remove();
@@ -67,7 +58,21 @@ const CartItem = ({
             return decrease();
           }}
         >
-          <Minus className="w-5 h-5 text-green-400  hover:text-green-600" />
+          {units === 1 ? (
+            <Trash className="w-4 h-4 text-red-400  hover:text-red-500" />
+          ) : (
+            <Minus className="w-4 h-4 text-green-400  hover:text-green-600" />
+          )}
+        </button>
+
+        <span className="font-bold text-[12] md:text-[14px] flex justify-center items-center">
+          {units}
+        </span>
+        <button
+          onClick={() => increase()}
+          className="text-gray-500 px-[2px] py-[2px] font-medium md:text-2xl text-md hover:text-green-400 transition-all duration-200 border-[1px] border-gray-300/50 rounded-md"
+        >
+          <Plus className="w-4 h-4 text-green-400  hover:text-green-600" />
         </button>
       </div>
       <div className="w-[10%] flex justify-end items-center ">

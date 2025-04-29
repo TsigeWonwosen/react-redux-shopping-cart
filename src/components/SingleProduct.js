@@ -16,9 +16,9 @@ export default function SingleProduct({
   const filteredProduct = filteredItems[0];
 
   return (
-    <div className="min-h-screen max-w-screen-xl mx-auto w-full  flex flex-col items-center justify-start bg-white px-4 py-10 mt-9 mb-6">
+    <div className="min-h-screen mx-auto w-full  flex flex-col items-center justify-start bg-white px-4 py-6 mt-6 mb-6  container ">
       <Breadcrumb />
-      <div className="container w-full  rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10  p-6 mb-12">
+      <div className="w-full  rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10  p-6 mb-12">
         {/* Image Section */}
         <div className="flex flex-col justify-center items-center w-full h-96 max-w-[500px] ">
           <div className="w-full h-95 max-w-[500px] gap-2 flex flex-col items-center justify-center overflow-hidden p-4 bg-gray-10 border-b-[1px] border-gray-200 mb-4 ">

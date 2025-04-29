@@ -87,7 +87,7 @@ class App extends React.Component {
             </Route>
             <Route
               exact
-              path="/product"
+              path="/products"
             >
               <ProductContainer
                 handleAddProduct={this.handleAddProduct}
@@ -95,7 +95,7 @@ class App extends React.Component {
                 product={this.props.product}
               />
             </Route>
-            <Route path="/product/:id">
+            <Route path="/products/:id">
               <SingleProduct
                 handleAddProduct={this.handleAddProduct}
                 handleInCart={this.props.handleInCart}

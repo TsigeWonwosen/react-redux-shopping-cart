@@ -1,9 +1,10 @@
 import React from "react";
 import Product from "./Product";
 import Header from "./Header";
-import SearchAndFilter from "./SearchAndFilter";
 import Breadcrumb from "./Breadcrumb";
 import { LightbulbIcon } from "lucide-react";
+import OrderBy from "./OrderBy";
+
 export default function ProductContainer({
   product,
   handleAddProduct,
@@ -14,7 +15,7 @@ export default function ProductContainer({
     <div className="App container bg-white mt-4">
       <Breadcrumb />
       <Header title="All products" />
-      <SearchAndFilter />
+      <OrderBy />
       <section className="cardContainer">
         {product.length === 0 && (
           <div className="flex justify-center items-center w-auto px-6 py-3 rounded-sm h-full bg-[#FFF3CD]">

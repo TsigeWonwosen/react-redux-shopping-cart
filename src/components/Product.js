@@ -19,7 +19,7 @@ export default function Product({
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/product/${id}`);
+    history.push(`/products/${id}`);
   };
   return (
     <div className="product-card relative">

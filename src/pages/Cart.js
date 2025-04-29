@@ -100,15 +100,21 @@ class Cart extends React.Component {
           </div>
 
           <section className="lg:w-1/4 w-full h-full flex flex-col justify-start items-center gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
-            <h3 className="text-center text-2xl font-semibold"> Summary</h3>
+            <h3 className="text-left w-full px-7 text-2xl font-semibold">
+              Summary
+            </h3>
             <div className=" flex flex-col gap-2 h-full w-full px-7 py-2 mt-4 bg-gray-50/50">
               <section className="flex justify-between items-center">
-                <label>Subtotal</label>
+                <label className="text-[#191919] font-normal">Subtotal</label>
                 <span>{util.formatCurrency(totalPrice)}</span>
               </section>
               <section className="flex justify-between items-center">
-                <label>Tax</label>
+                <label className="text-[#191919] font-normal">Tax</label>
                 <span>{util.formatCurrency(Tax)}</span>
+              </section>
+              <section className="flex justify-between items-center">
+                <label className="text-[#191919] font-normal">Shipping</label>
+                <span>Free</span>
               </section>
 
               <section className="flex justify-between items-center  border-t-[1px] border-gray-900/30  py-3">
