@@ -10,7 +10,7 @@ export default function NavBar({ cartLen }) {
   const location = useLocation();
 
   return (
-    <div className="w-full h-auto md:h-[60px] bg-white px-10 flex justify-between items-center shadow-lg ">
+    <div className="w-full h-auto md:h-[60px] bg-white px-10 flex justify-between items-center shadow-lg min-h-[60px]">
       <div className="full max-w-[1280px] mx-auto w-full flex justify-between items-center">
         <div className="h-full">
           <Link
@@ -26,9 +26,7 @@ export default function NavBar({ cartLen }) {
             </span>
           </Link>
         </div>
-        <section className="flex w-full h-full md:hidden justify-center items-center">
-          <SearchAndFilter />
-        </section>
+
         <button
           className="block md:hidden w-7 h-7 focus:bg-transparent transition-all duration-200"
           onClick={() => {
@@ -77,6 +75,9 @@ export default function NavBar({ cartLen }) {
         {/* For Moble Navbar  */}
 
         {/* For Moble Navbar  */}
+        {/* <section className="flex w-full h-full md:hidden justify-center items-center">
+              <SearchAndFilter />
+            </section> */}
         {navOpen && (
           <ul className=" absolute top-[63px] right-2 flex md:hidden justify-center flex-col z-20 items-center  gap-3 text-[15px] bg-white w-1/2 h-auto py-8 rounded-b-md shadow-lg">
             {NavLinks.map((navs) => (
