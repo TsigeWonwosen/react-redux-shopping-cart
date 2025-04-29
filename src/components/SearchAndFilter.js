@@ -6,7 +6,7 @@ import {
   sortProductByPrice,
   filterByCategoriesAndSearch,
 } from "../redux/action/cartAction";
-import { ListOrdered, Search } from "lucide-react";
+import { ListOrdered, Search, X } from "lucide-react";
 
 function SearchAndFilter() {
   const [sort, setSort] = useState("");
@@ -41,7 +41,7 @@ function SearchAndFilter() {
   return (
     <div className="w-full h-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-2 mx-auto mb-8 max-w-4xl mt-8  p-4 rounded-md shadow-sm">
       <form
-        className=" flex justify-center flex-col items-center w-full  overflow-hidden rounded-md max-w-[450px] gap-3 sm:gap-0 sm:flex-row h-auto"
+        className=" relative flex justify-center flex-col items-center w-full  overflow-hidden rounded-md max-w-[450px] gap-3 sm:gap-0 sm:flex-row h-auto"
         onSubmit={hundleSubmit}
       >
         <input
@@ -49,13 +49,22 @@ function SearchAndFilter() {
           placeholder="Search products..."
           value={searchTerm}
           onChange={handleSearch}
-          className=" h-9 w-full  px-6 py-1  focus:ring-green-500 transition   focus:ring-2 focus:outline-none border rounded-md sm:flex-1 sm:rounded-none sm:rounded-l-md border-gray-300  "
+          className="  h-9 w-full  px-6 py-1  focus:ring-green-500 transition   focus:ring-2 focus:outline-none border rounded-md sm:flex-1 sm:rounded-none sm:rounded-l-md border-gray-300  "
         />
+        <button
+          className="absolute r-1 top-1/2 w-5 h-5 transform -translate-y-1/2 "
+          type="button"
+          onClick={() => {
+            setSearchTerm("");
+          }}
+        >
+          {searchTerm && <X className="w-4 h-4 text-gray-500" />}
+        </button>
         <div className="flex items-center justify-between w-auto h-auto  ">
           <select
             value={selectedCategory}
             onChange={handleCategory}
-            className="w-auto  h-9 px-2 py-1 border-[1px] sm:bottom-0 sm:border-x-[1px]  border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition  "
+            className="w-auto  h-9 px-3 py-1 border-[1px] sm:bottom-0 sm:border-x-[1px]  border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition  "
           >
             <option value="all">All Categories</option>
             {categories.map((category, idx) => (
@@ -68,10 +77,10 @@ function SearchAndFilter() {
             ))}
           </select>
           <button
-            className=" w-[50px] h-9 py-1 bg-green-500 flex items-center justify-center active:bg-green-500 focus:bg-green-500 hover:bg-green-600 transition duration-200 ease-in-out rounded-r-md"
+            className=" w-[40px] h-9 py-1 bg-green-400 flex items-center justify-center active:bg-green-500 focus:bg-green-500 hover:bg-green-600 transition duration-200 ease-in-out rounded-r-md"
             type="submit"
           >
-            <Search className=" text-white w-[14px] h-[14px] font-semibold  " />
+            <Search className=" text-white w-[15px] h-[15px]  " />
           </button>
         </div>
       </form>
