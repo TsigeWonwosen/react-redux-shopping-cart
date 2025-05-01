@@ -47,7 +47,7 @@ function SearchAndFilter() {
             placeholder="Search products..."
             value={searchTerm}
             onChange={handleSearch}
-            className="h-8 w-full  px-6 py-2  focus:ring-green-500/50 transition   focus:ring-1 focus:outline-none border rounded-md sm:flex-1 sm:rounded-none sm:rounded-l-md border-gray-300  "
+            className="h-8 w-full  px-6 py-2  focus:ring-green-500/50 transition   focus:ring-1 focus:outline-none border-[0.5px] rounded-md sm:flex-1 sm:rounded-none sm:rounded-l-md border-gray-200  "
           />
           <button
             className="absolute right-2 top-1/2 w-5 h-5 transform -translate-y-1/2 bg-transparent border-none cursor-pointer"
@@ -63,7 +63,7 @@ function SearchAndFilter() {
           <select
             value={selectedCategory}
             onChange={handleCategory}
-            className="w-auto  h-8 px-3 py-1 border-[1px] sm:bottom-0 sm:border-x-[1px]  border-gray-300  focus:outline-none focus:ring-1 focus:ring-green-500 transition bg-white "
+            className="w-auto  h-8 px-3 py-1 border-[0.5px] sm:bottom-0 sm:border-x-[0.5px]  border-gray-200  focus:outline-none focus:ring-1 focus:ring-green-500 transition bg-white "
           >
             <option value="all">All Categories</option>
             {categories.map((category, idx) => (

@@ -12,7 +12,7 @@ export default function ProductContainer({
   handleInCart,
 }) {
   return (
-    <div className="App container bg-white mt-4">
+    <div className=" container max-w-[1280px] mx-auto bg-white mt-4">
       <Breadcrumb />
       <Header title="All products" />
       <OrderBy />

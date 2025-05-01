@@ -15,7 +15,7 @@ export default function Breadcrumb() {
   }
 
   return (
-    <section className="text-sm text-gray-500 flex justify-start items-center mb-2 w-full max-w-4xl ">
+    <section className="text-sm text-gray-500 flex justify-start items-center mb-2 mt-2 w-full max-w-4xl ">
       <ol className="list-none p-0 inline-flex flex-wrap items-center space-x-1">
         <li className="flex justify-center items-center ml-9">
           <Link

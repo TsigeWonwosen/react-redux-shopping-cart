@@ -37,7 +37,7 @@ class Cart extends React.Component {
           <button
             className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-500/90"
             onClick={() => {
-              history.push("/product");
+              history.push("/products");
             }}
           >
             Back to Shopping
@@ -47,7 +47,7 @@ class Cart extends React.Component {
     }
 
     return (
-      <section className="flex flex-col justify-start items-center gap-4 rounded-md px-9 w-full min-h-screen  my-8 max-w-screen-xl mx-auto">
+      <section className="flex flex-col justify-start items-center gap-4 rounded-md w-full min-h-screen  my-8 max-w-screen-xl mx-auto ">
         <header className="flex justify-between px-4 py-2 items-center border-[1px] md:w-[80%] w-full min-h-[60px] border-gray-900/50 gap-2 rounded-md bg-white">
           <div className="flex justify-start  items-center gap-2">
             <CircleCheck className="text-green-400" />
@@ -56,14 +56,14 @@ class Cart extends React.Component {
           <button
             className="bg-green-700/80 rounded-md px-3 py-2 text-white text-sm"
             onClick={() => {
-              history.push("/product");
+              history.push("/products");
             }}
           >
             Continue Shopping
           </button>
         </header>
-        <div className="flex w-full flex-1 justify-between items-start gap-2 bg-white rounded-md lg:flex-row flex-col">
-          <div className="flex flex-col justify-start items-start w-full h-full lg:w-3/4">
+        <div className="flex w-full flex-1 justify-between items-start gap-4 rounded-md lg:flex-row flex-col">
+          <div className="flex flex-col justify-start items-start w-full h-full lg:w-3/4  bg-white">
             <section className="w-full h-full px-3 py-2 rounded-sm  flex flex-col overflow-auto ">
               <div className="py-3 px-3 md:px-6 w-full flex justify-between items-center border-b-[1px] border-gray-900/30 text-md md:font-medium font-normal">
                 <span className="w-[10%]"></span>
@@ -88,10 +88,10 @@ class Cart extends React.Component {
                 ))}
               </div>
             </section>
-            <div className="w-full h-auto flex justify-end items-start  mt-4  px-4">
+            <div className="w-full h-auto flex justify-end items-start  my-4  px-4">
               <button
-                className=" flex justify-center items-center gap-2 text-green-800 hover:text-green-600 text-md border-[1px] border-green-900/80 hover:border-green-500/90  py-1 rounded-sm  w-auto  font-semibold px-3 transition-all duration-300"
-                onClick={() => history.push("/product")}
+                className=" flex justify-center items-center gap-2 text-green-800 hover:text-green-600 text-md border-[1px] border-green-900/80 hover:border-green-500/90  py-1 rounded-sm  w-auto  font-semibold px-3 transition-all duration-300 "
+                onClick={() => history.push("/products")}
               >
                 <MoveLeft />
                 Back to basket
@@ -99,7 +99,7 @@ class Cart extends React.Component {
             </div>
           </div>
 
-          <section className="lg:w-1/4 w-full h-full flex flex-col justify-start items-center gap-6 px-3 pt-5 rounded-md shadow-md text-gray-700/90 min-h-[400px]">
+          <section className="lg:w-1/4 w-full h-full flex flex-col justify-start items-center gap-6 px-3 pt-5 rounded-sm shadow-sm text-gray-700/90 min-h-[400px]  bg-white">
             <h3 className="text-left w-full px-7 text-2xl font-semibold">
               Summary
             </h3>

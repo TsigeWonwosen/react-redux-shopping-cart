@@ -41,16 +41,21 @@ export default function NavBar({ cartLen }) {
           <SearchAndFilter />
         </section>
         {/* For Desktop Navbar  */}
-        <ul className="hidden md:flex justify-center items-center  gap-3 text-[15px] mr-4">
+        <ul className="hidden md:flex justify-center items-center  gap-3 text-[15px] mr-4 w-auto h-auto ml-auto font-sans-serif">
           {NavLinks.map((navs) => (
             <li
               key={navs.titel}
-              className={` text-gray-600 hover:text-green-500 transition-all duration-300 w-auto ${
+              className={` text-gray-500 flex justify-center items-center hover:text-green-500 transition-all duration-300 w-auto  ${
                 navs.url === location.pathname &&
                 "text-green-500 border-b-[2px] border-green-500 py-2"
               }`}
             >
-              <Link to={navs.url}>{navs.titel}</Link>
+              <Link
+                to={navs.url}
+                className="w-auto h-full flex justify-center flex-row min-w-auto items-center whitespace-nowrap"
+              >
+                {navs.titel}
+              </Link>
             </li>
           ))}
           <li className="relative w-6 h-6 text-gray-600 hover:text-green-500 transition-all duration-300">
@@ -118,5 +123,5 @@ export default function NavBar({ cartLen }) {
 const NavLinks = [
   { url: "/", titel: "Home" },
   { url: "/products", titel: "Products" },
-  { url: "/signin", titel: "SignIn" },
+  { url: "/signin", titel: "Log In" },
 ];
