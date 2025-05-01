@@ -123,5 +123,5 @@ export default function NavBar({ cartLen }) {
 const NavLinks = [
   { url: "/", titel: "Home" },
   { url: "/products", titel: "Products" },
-  { url: "/signin", titel: "Log In" },
+  { url: "/login", titel: "Log In" },
 ];
